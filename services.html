@@ -1,0 +1,412 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Our Services - Inaya Financial Services</title>
+  <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;600;700&display=swap" rel="stylesheet">
+  <style>
+    /* Basic Reset */
+    * {
+      margin: 0;
+      padding: 0;
+      box-sizing: border-box;
+    }
+
+    body {
+      font-family: 'Poppins', sans-serif;
+      background-color: #f0f4f8; /* Light background */
+      color: #333;
+      line-height: 1.6;
+      display: flex;
+      flex-direction: column;
+      min-height: 100vh;
+      /* Updated background with user-provided image */
+      background-image: url('background_photo_services.jpg'), url('https://placehold.co/1920x1080/CCCCCC/FFFFFF?text=Background'); /* Fallback placeholder */
+      background-size: cover;
+      background-position: center;
+      background-attachment: fixed;
+      position: relative;
+    }
+
+    body::before {
+      content: '';
+      position: absolute;
+      top: 0;
+      left: 0;
+      right: 0;
+      bottom: 0;
+      background: rgba(20, 66, 114, 0.7); /* Dark blue overlay */
+      z-index: -1;
+    }
+
+    .header-section {
+      text-align: center;
+      padding: 60px 20px;
+      color: white;
+      background: linear-gradient(135deg, #1f4287, #2c5a9b); /* Dark blue gradient */
+      box-shadow: 0 4px 15px rgba(0,0,0,0.2);
+    }
+
+    .header-section h1 {
+      font-size: 3.5em;
+      margin-bottom: 10px;
+      font-weight: 700;
+    }
+
+    .header-section p {
+      font-size: 1.3em;
+      opacity: 0.9;
+    }
+
+    .container {
+      max-width: 1200px;
+      margin: 40px auto;
+      padding: 20px;
+      background-color: rgba(255, 255, 255, 0.95);
+      border-radius: 15px;
+      box-shadow: 0 8px 20px rgba(0,0,0,0.15);
+      flex-grow: 1;
+    }
+
+    h2 {
+      text-align: center;
+      color: #144272;
+      font-size: 2.8em;
+      margin-bottom: 40px;
+      font-weight: 600;
+      position: relative;
+    }
+
+    h2::after {
+      content: '';
+      width: 80px;
+      height: 4px;
+      background-color: #ffb703;
+      position: absolute;
+      bottom: -10px;
+      left: 50%;
+      transform: translateX(-50%);
+      border-radius: 2px;
+    }
+
+    .services-grid {
+      display: grid;
+      grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+      gap: 30px;
+      margin-bottom: 60px;
+    }
+
+    .service-card {
+      background: white;
+      padding: 30px;
+      border-radius: 12px;
+      box-shadow: 0 4px 15px rgba(0,0,0,0.08);
+      text-align: center;
+      transition: transform 0.3s ease, box-shadow 0.3s ease;
+      display: flex;
+      flex-direction: column;
+      align-items: center;
+      position: relative;
+      overflow: hidden;
+    }
+
+    .service-card:hover {
+      transform: translateY(-8px);
+      box-shadow: 0 8px 25px rgba(0,0,0,0.15);
+    }
+
+    .service-card::before {
+      content: '';
+      position: absolute;
+      top: 0;
+      left: 0;
+      width: 100%;
+      height: 5px;
+      background: linear-gradient(90deg, #ffb703, #e0a302); /* Top border gradient */
+      transform: translateY(-100%);
+      transition: transform 0.3s ease-out;
+    }
+
+    .service-card:hover::before {
+      transform: translateY(0);
+    }
+
+    .service-card img {
+      width: 100px;
+      height: 100px;
+      object-fit: cover;
+      border-radius: 50%;
+      margin-bottom: 20px;
+      border: 3px solid #ffb703;
+      box-shadow: 0 2px 8px rgba(0,0,0,0.1);
+    }
+
+    .service-card h3 {
+      font-size: 1.8em;
+      color: #144272;
+      margin-bottom: 15px;
+      font-weight: 600;
+    }
+
+    .service-card p {
+      font-size: 1em;
+      color: #555;
+      text-align: center;
+      flex-grow: 1; /* Ensures paragraphs take available space */
+    }
+
+    .non-financial-header {
+        margin-top: 80px; /* Space above non-financial services header */
+    }
+
+    .back-button-container {
+      text-align: center;
+      margin: 40px 0 60px 0;
+    }
+
+    .back-button {
+      display: inline-block;
+      padding: 12px 28px;
+      background-color: #ffb703;
+      color: #000;
+      text-decoration: none;
+      border-radius: 8px;
+      font-weight: 700;
+      transition: background-color 0.3s ease, transform 0.2s ease;
+      box-shadow: 0 4px 10px rgba(0,0,0,0.1);
+    }
+
+    .back-button:hover {
+      background-color: #e0a302;
+      transform: translateY(-2px);
+    }
+
+    .back-button:active {
+      transform: translateY(0);
+      box-shadow: 0 2px 5px rgba(0,0,0,0.2);
+    }
+
+    /* New Marquee for Risk Factors */
+    .risk-marquee-container {
+      background-color: rgba(20, 66, 114, 0.7); /* Matching body overlay background */
+      color: white; /* White text for better contrast on dark background */
+      padding: 10px 0;
+      overflow: hidden;
+      white-space: nowrap;
+      margin-top: auto; /* Push it just above the footer */
+      box-shadow: 0 -2px 8px rgba(0,0,0,0.1); /* Subtle shadow above */
+      /* No need for background-image, size, position, attachment here as it would conflict with animation */
+    }
+
+    .risk-marquee-content {
+      display: inline-block;
+      animation: riskMarquee 60s linear infinite; /* Adjusted duration for longer text */
+      padding-left: 100%;
+      font-size: 0.9em;
+      font-weight: 500;
+    }
+
+    @keyframes riskMarquee {
+      0% { transform: translateX(0%); }
+      100% { transform: translateX(-100%); }
+    }
+
+    /* Footer */
+    footer {
+      background-color: #144272;
+      color: white;
+      text-align: center;
+      padding: 25px;
+      /* margin-top: auto; This is handled by flex-grow: 1 on .container and margin-top: auto on .risk-marquee-container */
+      font-size: 0.9em;
+      box-shadow: 0 -4px 15px rgba(0, 0, 0, 0.1); /* Added shadow for consistency */
+    }
+
+    footer h4 { /* Added style for h4 in footer */
+        color: #ffb703; /* Yellow color for the "Contact us:" heading */
+        font-size: 1.2em;
+        margin-bottom: 15px;
+        font-weight: 600;
+    }
+
+    .footer-contact-info { /* Added style for contact info container */
+        margin-top: 15px;
+        margin-bottom: 15px;
+    }
+
+    .footer-contact-info p { /* Added style for individual contact lines */
+        display: flex;
+        align-items: center;
+        justify-content: center;
+        margin-bottom: 8px; /* Space between contact lines */
+        color: white; /* Ensure text is white */
+        font-weight: 500;
+    }
+
+    .footer-contact-info svg { /* Added style for SVG icons in footer */
+        fill: #ffb703; /* Yellow color for SVG icon */
+        width: 18px; /* Size of the icon */
+        height: 18px;
+        margin-right: 8px; /* Space between icon and text */
+        vertical-align: middle;
+    }
+
+    .footer-contact-info a { /* Added style for email link in footer */
+        color: white; /* Make email link white */
+        text-decoration: none;
+        transition: color 0.3s ease;
+    }
+
+    .footer-contact-info a:hover { /* Added hover for email link */
+        color: #ffb703; /* Yellow on hover */
+    }
+
+    /* Responsive Adjustments */
+    @media (max-width: 768px) {
+      .header-section {
+        padding: 40px 15px;
+      }
+      .header-section h1 {
+        font-size: 2.5em;
+      }
+      .header-section p {
+        font-size: 1em;
+      }
+      .container {
+        margin: 20px;
+        padding: 15px;
+      }
+      h2 {
+        font-size: 2em;
+        margin-bottom: 30px;
+      }
+      .services-grid {
+        grid-template-columns: 1fr; /* Stack services on small screens */
+        gap: 20px;
+      }
+      .service-card {
+        padding: 20px;
+      }
+      .service-card img {
+        width: 80px;
+        height: 80px;
+      }
+      .service-card h3 {
+        font-size: 1.5em;
+      }
+      .risk-marquee-content {
+        font-size: 0.8em; /* Smaller font for mobile */
+      }
+    }
+  </style>
+</head>
+<body>
+  <div class="header-section">
+    <h1>Our Services</h1>
+    <p>Empowering Your Financial Journey with Comprehensive Solutions</p>
+  </div>
+
+  <div class="container">
+    <h2>Financial Services</h2>
+    <div class="services-grid">
+      <div class="service-card">
+        <img src="Mutual Funds.png" alt="Equities / Mutual Funds / Bonds" onerror="this.onerror=null; this.src='https://placehold.co/100x100/FFD700/000000?text=Funds';" />
+        <h3>Equities / Mutual Funds / Bonds</h3>
+        <p>At Inaya Financial Services, we guide you through the complexities of stocks, mutual funds, and bonds. We help craft a balanced portfolio tailored to your financial goals and risk tolerance, ensuring smart investment decisions.</p>
+      </div>
+      <div class="service-card">
+        <img src="Wealth management.jpg" alt="Wealth/Portfolio Management" onerror="this.onerror=null; this.src='https://placehold.co/100x100/ADFF2F/000000?text=Wealth';" />
+        <h3>Wealth/Portfolio Management</h3>
+        <p>Beyond just saving, true financial security comes from strategic wealth management. Inaya Financial Services empowers you to grow your assets sustainably, building a robust portfolio designed for long-term prosperity.</p>
+      </div>
+      <div class="service-card">
+        <img src="PMS Management.png" onerror="this.onerror=null; this.src='https://placehold.co/100x100/87CEEB/000000?text=PE';" />
+        <h3>PMS/AIF/PE Fund</h3>
+        <p>Unlock exclusive investment opportunities with Portfolio Management Services (PMS), Alternative Investment Funds (AIF), and Private Equity (PE) Funds. Inaya Financial Services connects discerning investors with high-growth ventures and expert-managed strategies.</p>
+      </div>
+      <div class="service-card">
+        <img src="Insurance mngmt.png" alt="Insurance" onerror="this.onerror=null; this.src='https://placehold.co/100x100/FFA07A/000000?text=Insure';" />
+        <h3>Insurance</h3>
+        <p>Protect what matters most with comprehensive insurance solutions. Inaya Financial Services simplifies the process of choosing the right life, health, and asset coverage, providing clarity and confidence for your future.</p>
+      </div>
+      <div class="service-card">
+        <img src="Loan.jpg" alt="Loans & Funding" onerror="this.onerror=null; this.src='https://placehold.co/100x100/98FB98/000000?text=Loan';" />
+        <h3>Loans & Funding</h3>
+        <p>Whether for personal aspirations or business growth, Inaya Financial Services offers expert advisory on cost-effective loan and funding options. We leverage deep market knowledge to secure the best solutions for micro and small enterprises.</p>
+      </div>
+      <div class="service-card">
+        <img src="Equity.jpg" alt="Equity Market" onerror="this.onerror=null; this.src='https://placehold.co/100x100/BA55D3/000000?text=Equity';" />
+        <h3>Equity Market</h3>
+        <p>Navigating the equity market requires precision and insight. Inaya Financial Services provides expert guidance, helping you make informed decisions and optimize your returns, always aligned with your individual risk profile.</p>
+      </div>
+      <div class="service-card">
+        <img src="Post office schemes.png" alt="PPF & Post Office Portfolios" onerror="this.onerror=null; this.src='https://placehold.co/100x100/DAA520/000000?text=Post';" />
+        <h3>PPF & Post Office Schemes</h3>
+        <p>Discover secure and government-backed savings opportunities. Inaya Financial Services offers clear insights into Public Provident Fund (PPF) and other advantageous post office schemes, designed for stable and reliable financial growth.</p>
+      </div>
+    </div>
+
+    <h2 class="non-financial-header">Non-Financial Services</h2>
+    <div class="services-grid">
+      <div class="service-card">
+        <img src="Cmpliance.png" onerror="this.onerror=null; this.src='https://placehold.co/100x100/ADD8E6/000000?text=Legal';" />
+        <h3>Legal & Compliance</h3>
+        <p>Ensure your financial endeavors are always transparent and compliant with regulations. Inaya Financial Services provides essential legal and compliance support, safeguarding you against potential risks and fostering trust.</p>
+      </div>
+      <div class="service-card">
+        <img src="Taxes.jpg" alt="Accounting – periodic taxation and returns in investment" onerror="this.onerror=null; this.src='https://placehold.co/100x100/C0C0C0/000000?text=Tax';" />
+        <h3>Accounting – periodic taxation and returns in investment</h3>
+        <p>Optimize your tax savings and maintain impeccable financial records with Inaya Financial Services. Our taxation and accounting expertise ensures compliance, clarity, and efficient management of your finances.</p>
+      </div>
+      <div class="service-card">
+        <img src="https://placehold.co/100x100/DDA0DD/000000?text=Value" alt="Valuation" onerror="this.onerror=null; this.src='https://placehold.co/100x100/DDA0DD/000000?text=Value';" />
+        <h3>Valuation</h3>
+        <p>Understand the true potential of your assets and investments. Inaya Financial Services offers precise valuation services, empowering you with informed insights to make strategic, risk-aware decisions for your future.</p>
+      </div>
+    </div>
+
+    <div class="back-button-container">
+      <a href="IFS.html" class="back-button">Back to Home</a>
+    </div>
+  </div>
+
+  <!-- New Marquee for Risk Factors -->
+  <div class="risk-marquee-container">
+    <div class="risk-marquee-content">
+      Risk Factors – Investments in Mutual Funds are subject to Market Risks. Read all scheme related documents carefully before investing. Mutual Fund Schemes do not assure or guarantee any returns. Past performances of any Mutual Fund Scheme may or may not be sustained in future. There is no guarantee that the investment objective of any suggested scheme shall be achieved. All existing and prospective investors are advised to check and evaluate the Exit loads and other cost structure (TER) applicable at the time of making the investment before finalizing on any investment decision for Mutual Funds schemes. We deal in Regular Plans only for Mutual Fund Schemes and earn a Trailing Commission on client investments. Disclosure For Commission earnings is made to clients at the time of investments. Option of Direct Plan for every Mutual Fund Scheme is available to investors offering advantage of lower expense ratio. We are not entitled to earn any commission on Direct plans. Hence we do not deal in Direct Plans.
+    </div>
+  </div>
+
+  <footer>
+    <h4>Contact us:</h4>
+    <div class="footer-contact-info">
+        <p>
+            <svg class="footer-phone-icon" viewBox="0 0 24 24">
+              <path d="M6.62 10.79c1.44 2.83 3.76 5.14 6.59 6.59l2.2-2.2c.27-.27.67-.36 1.02-.24 1.12.37 2.33.57 3.57.57.55 0 1 .45 1 1V20c0 .55-.45 1-1 1-9.39 0-17-7.61-17-17 0-.55.45-1 1-1h3.5c.55 0 1 .45 1 1 0 1.25.2 2.47.57 3.57.11.35.02.74-.25 1.02L6.62 10.79z"/>
+            </svg>
+            +91 8879936020
+        </p>
+        <p>
+            <svg class="footer-phone-icon" viewBox="0 0 24 24">
+              <path d="M6.62 10.79c1.44 2.83 3.76 5.14 6.59 6.59l2.2-2.2c.27-.27.67-.36 1.02-.24 1.12.37 2.33.57 3.57.57.55 0 1 .45 1 1V20c0 .55-.45 1-1 1-9.39 0-17-7.61-17-17 0-.55.45-1 1-1h3.5c.55 0 1 .45 1 1 0 1.25.2 2.47.57 3.57.11.35.02.74-.25 1.02L6.62 10.79z"/>
+            </svg>
+            +91 9936336276
+        </p>
+        <p>
+            <svg class="footer-phone-icon" viewBox="0 0 24 24">
+              <path d="M6.62 10.79c1.44 2.83 3.76 5.14 6.59 6.59l2.2-2.2c.27-.27.67-.36 1.02-.24 1.12.37 2.33.57 3.57.57.55 0 1 .45 1 1V20c0 .55-.45 1-1 1-9.39 0-17-7.61-17-17 0-.55.45-1 1-1h3.5c.55 0 1 .45 1 1 0 1.25.2 2.47.57 3.57.11.35.02.74-.25 1.02L6.62 10.79z"/>
+            </svg>
+            +91 9335097946
+        </p>
+        <p>
+            <svg class="footer-phone-icon" viewBox="0 0 24 24">
+                <path d="M20 4H4c-1.1 0-1.99.9-1.99 2L2 18c0 1.1.9 2 2 2h16c1.1 0 2-.9 2-2V6c0-1.1-.9-2-2-2zm0 4l-8 5-8-5V6l8 5 8-5v2z"/>
+            </svg>
+            <a href="mailto:inayafinancialservices@gmail.com">inayafinancialservices@gmail.com</a>
+        </p>
+    </div>
+    <p>&copy; 2025 Inaya Financial Services. All rights reserved.</p>
+  </footer>
+</body>
+</html>

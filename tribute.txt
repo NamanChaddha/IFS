@@ -1,0 +1,178 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Tribute to Mr. J.N. Sahni - Inaya Financial Services</title>
+  <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;600;700&display=swap" rel="stylesheet">
+  <style>
+    /* Basic Reset */
+    * {
+      margin: 0;
+      padding: 0;
+      box-sizing: border-box;
+    }
+
+    body {
+      font-family: 'Poppins', sans-serif;
+      background-color: #f0f4f8; /* Fallback background color */
+      color: #333;
+      line-height: 1.6;
+      display: flex;
+      flex-direction: column;
+      min-height: 100vh;
+      /* Enhanced background with image and overlay */
+      background-image: url('https://images.unsplash.com/photo-1517486804820-940737151194?ixlib=rb-4.0.3&auto=format&fit=crop&w=1920&q=80'); /* Professional background image */
+      background-size: cover;
+      background-position: center;
+      background-attachment: fixed;
+      position: relative; /* Needed for overlay */
+    }
+
+    /* Overlay for the background image to improve readability */
+    body::before {
+      content: '';
+      position: absolute;
+      top: 0;
+      left: 0;
+      right: 0;
+      bottom: 0;
+      background: rgba(0, 0, 0, 0.5); /* Darker overlay */
+      z-index: -1; /* Place behind content */
+    }
+
+    .container {
+      max-width: 900px;
+      margin: 60px auto; /* Increased margin for better spacing */
+      padding: 40px; /* Increased padding */
+      background-color: rgba(255, 255, 255, 0.95); /* Slightly transparent white */
+      border-radius: 15px; /* More rounded corners */
+      box-shadow: 0 10px 25px rgba(0,0,0,0.2); /* Stronger shadow for depth */
+      flex-grow: 1;
+      animation: fadeIn 1s ease-out; /* Fade-in animation for the container */
+    }
+
+    @keyframes fadeIn {
+      from { opacity: 0; transform: translateY(20px); }
+      to { opacity: 1; transform: translateY(0); }
+    }
+
+    /* Styling for the photo container */
+    .photo-container {
+      text-align: center;
+      margin-bottom: 30px; /* Space between photo and title */
+    }
+
+    .profile-photo {
+      width: 150px; /* Size of the photo */
+      height: 150px;
+      border-radius: 50%; /* Make it circular */
+      object-fit: cover; /* Ensures image covers the area without distortion */
+      border: 5px solid #144272; /* Border around the photo */
+      box-shadow: 0 5px 15px rgba(0,0,0,0.2); /* Shadow for the photo */
+    }
+
+
+    h1 {
+      text-align: center;
+      color: #144272;
+      margin-bottom: 35px; /* Adjusted margin */
+      font-size: 3em; /* Slightly larger heading */
+      font-weight: 700; /* Bolder heading */
+      letter-spacing: -0.5px; /* Slight letter spacing adjustment */
+    }
+
+    p {
+      margin-bottom: 1.5em; /* Increased line spacing */
+      text-align: justify;
+      color: #444; /* Slightly darker text for contrast */
+      line-height: 1.8;
+      font-size: 1.1em; /* Slightly larger paragraph text */
+      font-weight: 400;
+    }
+
+    .highlight {
+      font-weight: 700; /* Bolder highlight */
+      color: #144272;
+    }
+
+    .back-button-container {
+      text-align: center;
+      margin-top: 40px; /* Adjusted margin */
+    }
+
+    .back-button {
+      display: inline-block;
+      padding: 12px 28px; /* Larger padding for button */
+      background-color: #ffb703;
+      color: #000;
+      text-decoration: none;
+      border-radius: 8px; /* More rounded button */
+      font-weight: 700; /* Bolder button text */
+      transition: background-color 0.3s ease, transform 0.2s ease; /* Smooth hover and press effect */
+      box-shadow: 0 4px 10px rgba(0,0,0,0.1); /* Shadow for button */
+    }
+
+    .back-button:hover {
+      background-color: #e0a302;
+      transform: translateY(-2px); /* Slight lift on hover */
+    }
+
+    .back-button:active {
+      transform: translateY(0); /* Press down effect */
+      box-shadow: 0 2px 5px rgba(0,0,0,0.2);
+    }
+
+    footer {
+      background-color: #144272;
+      color: white;
+      text-align: center;
+      padding: 25px; /* Increased padding for footer */
+      margin-top: 60px; /* Increased space above footer */
+      font-size: 0.9em;
+    }
+
+    @media (max-width: 768px) {
+      .container {
+        margin: 30px 20px;
+        padding: 25px;
+      }
+      h1 {
+        font-size: 2em;
+      }
+      p {
+        font-size: 1em;
+      }
+      .profile-photo {
+        width: 120px;
+        height: 120px;
+      }
+    }
+  </style>
+</head>
+<body>
+  <div class="container">
+    <div class="photo-container">
+      <img src="https://placehold.co/150x150/CCCCCC/FFFFFF?text=Mr.+Sahni" alt="Mr. J.N. Sahni" class="profile-photo" />
+    </div>
+
+    <h1>A Legacy of Inspiration: Remembering Mr. J.N. Sahni</h1>
+
+    <p>At Inaya Financial Services, we stand on the shoulders of giants. Today, we wish to pay tribute to a truly remarkable individual whose unwavering dedication and profound wisdom laid an invaluable, indirect foundation for what we are today: the late <span class="highlight">Mr. J.N. Sahni</span>.</p>
+
+    <p>Mr. Sahni, who served with exceptional distinction at the Reserve Bank of India for <span class="highlight">over four decades</span>, from the tender age of 18 until his retirement at 60, embodied the principles of integrity, foresight, and meticulous effort. While he may not have been directly involved in the day-to-day operations of our company, his spirit and the values he championed resonate deeply within our core. It is with immense gratitude that we acknowledge that, without the profound impact of his efforts and his lasting legacy, the very existence and ethos of Inaya Financial Services as you know it would not have been possible.</p>
+
+    <p>His life's work is a testament to the power of commitment and the enduring influence one individual can have on future generations. We strive daily to uphold the standards of excellence and service that were so clearly exemplified in his distinguished career.</p>
+
+    <p>We are eternally grateful for his contributions, and his memory continues to inspire us in our mission to serve you.</p>
+
+    <div class="back-button-container">
+      <a href="index.html" class="back-button">Back to Home</a>
+    </div>
+  </div>
+
+  <footer>
+    &copy; 2025 Inaya Financial Services. All rights reserved.
+  </footer>
+</body>
+</html>

@@ -1,0 +1,299 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Our Vision - Inaya Financial Services</title>
+    <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;600;700&display=swap" rel="stylesheet">
+    <style>
+        /* Global Reset & Base Styles */
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+
+        body {
+            font-family: 'Poppins', sans-serif;
+            margin: 0;
+            padding: 0;
+            background-color: #f8faff; /* Lighter, subtle background */
+            color: #333;
+            line-height: 1.6;
+            display: flex;
+            flex-direction: column;
+            min-height: 100vh;
+            /* Updated background image */
+            background-image: url('financialservice.jpg'), url('https://placehold.co/1920x1080/CCCCCC/FFFFFF?text=Background'); /* Fallback placeholder */
+            background-size: cover;
+            background-position: center;
+            background-attachment: fixed;
+            position: relative;
+        }
+
+        /* Overlay for the background image to improve readability */
+        body::before {
+            content: '';
+            position: absolute;
+            top: 0; left: 0;
+            width: 100%;
+            height: 100%;
+            background-color: rgba(20, 66, 114, 0.75); /* Darker blue overlay */
+            z-index: -1;
+        }
+
+        /* Header Section */
+        .header {
+            position: relative;
+            background: linear-gradient(135deg, #1f4287, #2c5a9b); /* Consistent blue gradient */
+            color: white;
+            text-align: center;
+            padding: 8rem 2rem;
+            box-shadow: 0 4px 15px rgba(0, 0, 0, 0.2);
+        }
+
+        .header h1 {
+            position: relative;
+            z-index: 1;
+            font-size: 3.5em;
+            font-weight: 700;
+            margin-bottom: 20px;
+        }
+
+        .header-buttons {
+            margin-top: 30px;
+            display: flex;
+            justify-content: center;
+            gap: 15px;
+            position: relative;
+            z-index: 1;
+        }
+
+        .header-buttons button {
+            background-color: #ffb703; /* Yellow button color */
+            color: #144272; /* Dark blue text */
+            padding: 10px 25px;
+            border: none;
+            border-radius: 8px;
+            cursor: pointer;
+            font-weight: 600;
+            transition: background-color 0.3s ease, transform 0.2s ease;
+            box-shadow: 0 2px 8px rgba(0,0,0,0.1);
+        }
+
+        .header-buttons button:hover {
+            background-color: #e0a302;
+            transform: translateY(-2px);
+        }
+
+        /* Main Container */
+        .container {
+            max-width: 1100px; /* Increased width */
+            margin: 3rem auto;
+            padding: 2.5rem;
+            background-color: rgba(255, 255, 255, 0.98); /* Near opaque white */
+            box-shadow: 0 8px 25px rgba(0, 0, 0, 0.2); /* Stronger shadow */
+            border-radius: 15px; /* More rounded corners */
+            flex-grow: 1;
+        }
+
+        /* Section Styling */
+        .section {
+            margin-bottom: 3.5rem;
+            padding: 1.5rem 0;
+            text-align: center;
+        }
+
+        .section:last-child {
+            margin-bottom: 0;
+        }
+
+        .section h2 {
+            color: #144272;
+            font-size: 2.5em;
+            font-weight: 700;
+            margin-bottom: 30px;
+            position: relative;
+        }
+
+        .section h2::after {
+            content: '';
+            width: 60px;
+            height: 3px;
+            background-color: #ffb703;
+            position: absolute;
+            bottom: -10px;
+            left: 50%;
+            transform: translateX(-50%);
+            border-radius: 2px;
+        }
+
+        .section p {
+            font-size: 1.15em; /* Slightly larger text */
+            color: #444;
+            line-height: 1.8;
+            max-width: 750px; /* Limit paragraph width for readability */
+            margin: 0 auto 1.5em auto;
+            text-align: justify;
+        }
+
+        .vision-points {
+            list-style: none;
+            padding: 0;
+            margin-top: 40px;
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
+            gap: 25px;
+        }
+
+        .vision-points li {
+            background: #fdfdfd;
+            padding: 25px;
+            border-radius: 10px;
+            box-shadow: 0 4px 10px rgba(0,0,0,0.05);
+            text-align: left;
+            font-size: 1em;
+            color: #555;
+            position: relative;
+            padding-left: 55px; /* Space for icon */
+            border-left: 5px solid #ffb703; /* Accent border */
+            transition: transform 0.3s ease, box-shadow 0.3s ease;
+        }
+
+        .vision-points li:hover {
+            transform: translateY(-5px);
+            box-shadow: 0 8px 15px rgba(0,0,0,0.1);
+        }
+
+        .vision-points li::before {
+            content: '★'; /* Star icon, could be replaced with SVG/Font Awesome */
+            position: absolute;
+            left: 20px;
+            top: 50%;
+            transform: translateY(-50%);
+            color: #144272; /* Dark blue icon */
+            font-size: 1.5em;
+            line-height: 1;
+        }
+
+        /* Footer */
+        .footer {
+            text-align: center;
+            padding: 2.5rem;
+            background-color: #144272;
+            color: white;
+            font-size: 0.9em;
+            margin-top: auto;
+            box-shadow: 0 -4px 15px rgba(0, 0, 0, 0.1);
+        }
+
+        .footer p {
+            margin-bottom: 5px;
+        }
+
+        /* Responsive Adjustments */
+        @media (max-width: 768px) {
+            .header {
+                padding: 6rem 1rem;
+            }
+            .header h1 {
+                font-size: 2.5em;
+            }
+            .header-buttons {
+                flex-wrap: wrap;
+            }
+            .header-buttons button {
+                flex-basis: 45%;
+                margin-bottom: 10px;
+            }
+            .container {
+                margin: 2rem 1rem;
+                padding: 1.5rem;
+            }
+            .section h2 {
+                font-size: 2em;
+            }
+            .section p {
+                font-size: 1em;
+            }
+            .vision-points {
+                grid-template-columns: 1fr;
+            }
+            .vision-points li {
+                padding-left: 45px;
+            }
+            .vision-points li::before {
+                left: 15px;
+                font-size: 1.2em;
+            }
+        }
+    </style>
+</head>
+<body>
+    <div class="header">
+        <h1>Our Vision</h1>
+        <div class="header-buttons">
+            <button onclick="location.href='IFS.HTML'">Home</button>
+            <button onclick="location.href='ourfounders.html'">About Us</button>
+            <button onclick="location.href='services.html'">Our Services</button>
+            <button onclick="location.href='portfolio stats.html'">Assets Under Distribution</button>
+
+            <button onclick="location.href='vision.html'">Our Vision</button>
+            <button onclick="location.href='tribute.html'">Tribute</button>
+        </div>
+    </div>
+
+    <div class="container">
+        <div class="section">
+            <h2>Pioneering Financial Empowerment</h2>
+            <p>At Inaya Financial Services, our vision is to be the most trusted and innovative partner in financial growth for individuals, families, and businesses across India. We aim to create a future where financial security and prosperity are accessible to everyone, regardless of their starting point.</p>
+            <p>We envision a landscape where complex financial decisions are simplified, where every client feels empowered through clear understanding, and where their aspirations are met with meticulously crafted, forward-thinking strategies. We are committed to building enduring relationships based on unwavering integrity, profound expertise, and absolute transparency.</p>
+        </div>
+
+        <div class="section">
+            <h2>Our Core Pillars of Vision</h2>
+            <ul class="vision-points">
+                <li>
+                    <strong>Client-Centric Growth:</strong> To empower our clients with personalized financial roadmaps, fostering sustainable wealth creation and ensuring their long-term financial well-being. We believe in growth that is tailored, resilient, and always aligned with individual dreams.
+                </li>
+                <li>
+                    <strong>Innovation & Adaptability:</strong> To continuously evolve our solutions, embracing cutting-edge tools and methodologies that provide dynamic insights and superior outcomes in an ever-changing financial world. Our commitment is to remain at the forefront of financial advisory.
+                </li>
+                <li>
+                    <strong>Integrity & Trust:</strong> To uphold the highest standards of ethics and transparency in every interaction, building deep-rooted trust that forms the bedrock of lasting client relationships. We operate with honesty and clarity in all our dealings.
+                </li>
+                <li>
+                    <strong>Holistic Financial Well-being:</strong> To provide comprehensive support that extends beyond mere investments, encompassing crucial non-financial aspects like legal compliance, precise accounting, and accurate valuations, ensuring complete financial health.
+                </li>
+                <li>
+                    <strong>Accessibility & Simplicity:</strong> To demystify finance, making sophisticated strategies and government-backed schemes (like PPF) understandable and accessible to all segments of society, fostering financial literacy and confidence.
+                </li>
+                <li>
+                    <strong>Community Impact:</strong> To contribute significantly to the economic prosperity of our communities by supporting micro and small enterprises with optimal funding solutions, and by fostering a culture of prudent financial planning.
+                </li>
+                <li>
+                    <strong>Empowering Financial Literacy:</strong> To actively educate and equip individuals with the knowledge and skills necessary to make informed financial decisions, fostering a financially literate society capable of navigating economic complexities with confidence.
+                </li>
+                <li>
+                    <strong>Sustainable Partnerships:</strong> To build and nurture long-lasting relationships with our clients and partners, grounded in mutual respect, shared goals, and a commitment to sustained collective success and well-being.
+                </li>
+            </ul>
+        </div>
+
+        <div class="section">
+            <h2>Driving Towards a Prosperous Tomorrow</h2>
+            <p>Our vision is not just a statement; it's a commitment woven into the fabric of every service we offer. We strive daily to transform financial aspirations into tangible realities, ensuring that Inaya Financial Services remains a beacon of trust, expertise, and innovation for generations to come.</p>
+        </div>
+    </div>
+
+
+    <div class="footer">
+        <p>Contact us:</p>
+        <p>Email: inayafinancialservices@gmail.com</p>
+        <p>Phone 1:+91 8879936020</p>
+        <p>Phone 2:+91 9936336276</p>
+	<p>Phone 3:+91 9335097946</p>
+        <p>&copy; 2025 Inaya Financial Services. All rights reserved.</p>
+    </div>
+</body>
+</html>

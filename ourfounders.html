@@ -1,0 +1,550 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Behind Inaya Financial Services</title>
+    <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;500;600;700&display=swap" rel="stylesheet">
+    <style>
+        /* Global Reset & Base Styles */
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+
+        body {
+            font-family: 'Poppins', sans-serif;
+            margin: 0;
+            padding: 0;
+            background-color: #f0f4f8; /* Lighter, subtle background consistent with IFS.html */
+            color: #333;
+            line-height: 1.6;
+            display: flex;
+            flex-direction: column;
+            min-height: 100vh;
+            position: relative; /* Needed for back-to-top button positioning */
+        }
+
+        /* Header Section */
+        .header {
+            position: relative;
+            background: linear-gradient(135deg, #1f4287, #2c5a9b); /* Consistent blue gradient */
+            color: white;
+            text-align: center;
+            padding: 8rem 2rem; /* Adjusted padding for impact */
+            box-shadow: 0 4px 15px rgba(0, 0, 0, 0.2);
+        }
+
+        .header h1 {
+            position: relative;
+            z-index: 1;
+            font-size: 3.5em; /* Larger title */
+            font-weight: 700;
+            margin-bottom: 20px;
+        }
+
+        .header-buttons {
+            margin-top: 30px;
+            display: flex;
+            flex-wrap: wrap; /* Allows wrapping on smaller screens */
+            justify-content: center;
+            gap: 15px;
+            position: relative;
+            z-index: 1;
+        }
+
+        .header-buttons button {
+            background-color: #ffb703; /* Yellow button color */
+            color: #144272; /* Dark blue text */
+            padding: 12px 25px; /* Larger buttons */
+            border: none;
+            border-radius: 8px; /* More rounded */
+            cursor: pointer;
+            font-weight: 600;
+            transition: background-color 0.3s ease, transform 0.2s ease, box-shadow 0.3s ease;
+            box-shadow: 0 2px 8px rgba(0,0,0,0.1);
+        }
+
+        .header-buttons button:hover {
+            background-color: #e0a302; /* Darker yellow on hover */
+            transform: translateY(-2px);
+            box-shadow: 0 4px 12px rgba(0,0,0,0.2);
+        }
+
+        /* Main Container */
+        .container {
+            max-width: 1100px; /* Wider container */
+            margin: 3rem auto; /* More vertical margin */
+            padding: 2.5rem; /* More padding */
+            background-color: white;
+            box-shadow: 0 8px 20px rgba(0, 0, 0, 0.1); /* Stronger shadow */
+            border-radius: 12px; /* More rounded corners */
+            flex-grow: 1; /* Allows container to take available space */
+        }
+
+        /* Section Styling */
+        .section {
+            margin-bottom: 3.5rem; /* More space between sections */
+            padding: 1.5rem 0;
+        }
+
+        .section:last-child {
+            border-bottom: none; /* No border for the last section */
+        }
+
+        .section h2 {
+            color: #144272; /* Dark blue consistent with main page */
+            font-size: 2.8em; /* Larger section titles consistent with IFS.html */
+            font-weight: 700;
+            text-align: center;
+            margin-bottom: 40px; /* Space below heading */
+            position: relative;
+        }
+
+        .section h2::after {
+            content: '';
+            width: 70px; /* Consistent width */
+            height: 4px; /* Consistent height */
+            background-color: #ffb703; /* Accent line */
+            position: absolute;
+            bottom: -15px; /* Position below text */
+            left: 50%;
+            transform: translateX(-50%);
+            border-radius: 2px;
+        }
+
+        /* General Paragraph Styling within sections */
+        .section p {
+            font-size: 1.1em;
+            color: #555;
+            line-height: 1.7;
+            text-align: justify; /* Justify text for a cleaner look */
+            margin-bottom: 1em; /* Space between paragraphs */
+        }
+
+        /* Founder Profiles */
+        .founders-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
+            gap: 40px; /* Increased gap */
+            margin-top: 40px;
+        }
+
+        .founder-card {
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+            text-align: center;
+            background: #fdfdfd; /* Slightly off-white background */
+            padding: 30px;
+            border-radius: 10px;
+            box-shadow: 0 5px 15px rgba(0,0,0,0.08); /* Card shadow */
+            transition: transform 0.3s ease, box-shadow 0.3s ease;
+        }
+
+        .founder-card:hover {
+            transform: translateY(-5px);
+            box-shadow: 0 8px 20px rgba(0,0,0,0.15);
+        }
+
+        .founder-photo {
+            width: 120px;
+            height: 120px;
+            border-radius: 50%; /* Circular image */
+            object-fit: cover;
+            border: 4px solid #ffb703; /* Yellow border */
+            margin-bottom: 20px;
+            box-shadow: 0 2px 8px rgba(0,0,0,0.1);
+        }
+
+        .founder-card h3 {
+            color: #144272;
+            font-size: 1.8em;
+            margin-bottom: 10px;
+            font-weight: 600;
+        }
+
+        .founder-card p {
+            font-size: 1em;
+            color: #555;
+            line-height: 1.7;
+        }
+
+        /* Core Values Table */
+        .value-table {
+            width: 100%;
+            border-collapse: separate; /* Allows border-radius on cells */
+            border-spacing: 0;
+            margin-top: 40px;
+            border-radius: 8px; /* Rounded table corners */
+            overflow: hidden; /* Ensures content stays within rounded corners */
+            box-shadow: 0 4px 10px rgba(0,0,0,0.05);
+        }
+
+        .value-table th, .value-table td {
+            padding: 1rem 1.2rem;
+            text-align: left;
+            border-bottom: 1px solid #eee;
+            transition: background-color 0.3s ease; /* Smooth hover */
+        }
+
+        .value-table tbody tr:hover {
+            background-color: #f0f4f8; /* Light hover effect for rows */
+        }
+
+        .value-table th {
+            background-color: #144272;
+            color: white;
+            font-weight: 600;
+            text-transform: uppercase;
+            font-size: 0.95em;
+        }
+
+        .value-table tr:nth-child(even) {
+            background-color: #f9f9f9; /* Zebra striping */
+        }
+
+        .value-table td {
+            color: #444;
+        }
+
+        /* Our Approach List */
+        .approach-list {
+            list-style: none; /* Remove default bullets */
+            counter-reset: approach-counter; /* Initialize counter */
+            padding: 0;
+            margin-top: 40px;
+        }
+
+        .approach-list li {
+            position: relative;
+            padding-left: 50px; /* More space for custom number */
+            margin-bottom: 25px; /* More space between items */
+            font-size: 1.1em;
+            color: #444;
+            line-height: 1.5;
+        }
+
+        .approach-list li::before {
+            counter-increment: approach-counter;
+            content: counter(approach-counter);
+            position: absolute;
+            left: 0;
+            top: 0;
+            background-color: #ffb703; /* Yellow circle */
+            color: #144272; /* Dark blue number */
+            width: 35px; /* Larger circle */
+            height: 35px;
+            border-radius: 50%;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            font-weight: 700;
+            font-size: 1.1em; /* Larger number */
+            box-shadow: 0 2px 5px rgba(0,0,0,0.1);
+            transition: background-color 0.3s ease;
+        }
+        .approach-list li:hover::before {
+            background-color: #e0a302; /* Darker yellow on hover */
+        }
+
+        /* Get in Touch Section */
+        .get-in-touch {
+             background-color: white; /* Changed to white */
+             border-radius: 15px;
+             padding: 40px; /* Reduced padding for this section */
+             margin-top: 60px; /* Space above */
+             box-shadow: 0 8px 20px rgba(0,0,0,0.1);
+             text-align: center; /* Center the content */
+        }
+        .get-in-touch h2 {
+            margin-bottom: 20px; /* Less space for direct CTA */
+        }
+        .get-in-touch p {
+            font-size: 1.2em;
+            margin-top: 20px;
+            color: #144272;
+            font-weight: 600;
+            margin-bottom: 30px; /* Space above the button */
+        }
+
+        /* Contact Us Button in Get in Touch Section */
+        .get-in-touch .cta-button {
+            display: inline-block;
+            padding: 15px 30px;
+            background-color: #ffb703;
+            color: #144272;
+            text-decoration: none;
+            border-radius: 8px;
+            font-weight: 700;
+            font-size: 1.1em;
+            transition: background-color 0.3s ease, transform 0.2s ease;
+            box-shadow: 0 4px 12px rgba(0,0,0,0.2);
+        }
+
+        .get-in-touch .cta-button:hover {
+            background-color: #e0a302;
+            transform: translateY(-3px);
+        }
+
+
+        /* Footer */
+        footer {
+            background-color: #144272;
+            color: white;
+            text-align: center;
+            padding: 25px; /* Adjusted padding */
+            margin-top: 60px; /* More space above footer */
+            font-size: 0.9em;
+            box-shadow: 0 -4px 15px rgba(0, 0, 0, 0.1);
+        }
+
+        footer h4 {
+            color: #ffb703; /* Yellow color for the "Contact us:" heading */
+            font-size: 1.2em;
+            margin-bottom: 15px;
+            font-weight: 600;
+        }
+
+        .footer-contact-info {
+            margin-top: 15px;
+            margin-bottom: 15px;
+        }
+
+        .footer-contact-info p {
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            margin-bottom: 8px; /* Space between contact lines */
+            color: white; /* Ensure text is white */
+            font-weight: 500;
+        }
+
+        .footer-contact-info svg {
+            fill: #ffb703; /* Yellow color for SVG icon */
+            width: 18px; /* Size of the icon */
+            height: 18px;
+            margin-right: 8px; /* Space between icon and text */
+            vertical-align: middle;
+        }
+
+        .footer-contact-info a {
+            color: white; /* Make email link white */
+            text-decoration: none;
+            transition: color 0.3s ease;
+        }
+
+        .footer-contact-info a:hover {
+            color: #ffb703; /* Yellow on hover */
+        }
+
+        /* Back to Top Button */
+        #backToTopBtn {
+          display: none; /* Hidden by default */
+          position: fixed; /* Fixed position */
+          bottom: 20px; /* Place at the bottom */
+          right: 30px; /* Place at the right */
+          z-index: 99; /* Make sure it does not overlap */
+          border: none; /* Remove borders */
+          outline: none; /* Remove outline */
+          background-color: #ffb703; /* Yellow background */
+          color: #144272; /* Dark blue text */
+          cursor: pointer; /* Add a mouse pointer on hover */
+          padding: 15px; /* Some padding */
+          border-radius: 10px; /* Rounded corners */
+          font-size: 18px; /* Increase font size */
+          box-shadow: 0 4px 10px rgba(0,0,0,0.2);
+          transition: background-color 0.3s ease, transform 0.2s ease;
+        }
+
+        #backToTopBtn:hover {
+          background-color: #e0a302; /* Darker yellow on hover */
+          transform: translateY(-2px);
+        }
+
+        /* Responsive Adjustments */
+        @media (max-width: 768px) {
+            .header {
+                padding: 6rem 1rem;
+            }
+            .header h1 {
+                font-size: 2.5em;
+            }
+            .header-buttons {
+                flex-direction: column; /* Stack buttons on small screens */
+                align-items: center;
+            }
+            .header-buttons button {
+                width: 80%; /* Make buttons wider */
+            }
+            .container {
+                margin: 2rem 1rem;
+                padding: 1.5rem;
+            }
+            .section h2 {
+                font-size: 2em;
+                margin-bottom: 30px;
+            }
+            .founders-grid {
+                grid-template-columns: 1fr; /* Stack founders */
+            }
+            .value-table th, .value-table td {
+                padding: 0.8rem;
+                font-size: 0.9em;
+            }
+            .approach-list li {
+                font-size: 1em;
+                padding-left: 40px; /* Adjust padding for smaller screens */
+            }
+            .approach-list li::before {
+                width: 30px;
+                height: 30px;
+                font-size: 0.9em;
+            }
+            .get-in-touch {
+                padding: 30px 15px;
+            }
+            #backToTopBtn {
+                font-size: 16px;
+                padding: 12px;
+                bottom: 15px;
+                right: 15px;
+            }
+        }
+    </style>
+</head>
+<body>
+    <div class="header">
+        <h1>Behind Inaya Financial Services</h1>
+        <div class="header-buttons">
+            <button onclick="location.href='IFS.HTML'">Home</button>
+            <button onclick="location.href='ourfounders.html'">About Us</button>
+            <button onclick="location.href='services.html'">Our Services</button>
+            <button onclick="location.href='portfolio stats.html'">Assets Under Distribution</button>
+
+            <button onclick="location.href='vision.html'">Our Vision</button>
+            <button onclick="location.href='tribute.html'">Tribute</button>
+        </div>
+    </div>
+
+    <div class="container">
+        <div class="section">
+            <h2>Our Mission</h2>
+            <p>At Inaya Financial Services, our mission is to illuminate the path to financial freedom for every client. We are committed to delivering unparalleled, transparent, and empathetic financial guidance tailored to your unique aspirations. Through a blend of seasoned expertise, innovative strategies, and unwavering integrity, we empower individuals and businesses to navigate complex financial landscapes with confidence, fostering long-term growth and prosperity for a secure future.</p>
+        </div>
+
+        <div class="section">
+            <h2>Meet the Founders!</h2>
+            <div class="founders-grid">
+                <div class="founder-card">
+                    <img src="Varun Sahni Pic.png" alt="Mr. Varun Sahni" class="founder-photo" onerror="this.onerror=null; this.src='https://placehold.co/120x120/FFB703/144272?text=Varun';"/>
+                    <h3>Mr. Varun Sahni</h3>
+                    <p>With over 15 years in corporate finance and investment banking, Mr. Varun leads our vision and strategic growth. He has previously led top-tier banks like ICICI Bank, HDFC Bank, and Bandhan Bank as an Assistant Vice President, bringing a wealth of strategic expertise.</p>
+                </div>
+                <div class="founder-card">
+                    <img src="Sunil Sahni Pic.jpg" alt="Mr. Sunil Sahni" class="founder-photo" onerror="this.onerror=null; this.src='https://placehold.co/120x120/144272/FFB703?text=Sunil';"/>
+                    <h3>Mr. Sunil Sahni</h3>
+                    <p>Mr. Sunil brings three decades of invaluable experience in finance operations, ensuring robust internal systems and compliance. He previously served with the State Bank of India for over 30 years, demonstrating utmost passion and dedication to financial excellence.</p>
+                </div>
+                <div class="founder-card">
+                    <img src="Sushma Sahni Pic.png" alt="Mrs. Sushma Sahni" class="founder-photo" onerror="this.onerror=null; this.src='https://placehold.co/120x120/FFB703/144272?text=Sushma';"/>
+                    <h3>Mrs. Sushma Sahni</h3>
+                    <p>Mrs. Sushma specializes in empathetic wealth management, guiding clients with personalized care and crafting tailored financial strategies. Her three decades as a dedicated post office agent as well as an LIC agent along reflect a deep commitment to trust and helping clients achieve yearly investment growth.</p>
+                </div>
+            </div>
+        </div>
+
+        <div class="section">
+            <h2>Our Core Values</h2>
+            <table class="value-table">
+                <thead>
+                    <tr><th>Value</th><th>What It Means to Us</th></tr>
+                </thead>
+                <tbody>
+                    <tr><td>Integrity</td><td>Honest and ethical guidance without hidden fees.</td></tr>
+                    <tr><td>Expertise</td><td>Deep knowledge with ongoing professional development.</td></tr>
+                    <tr><td>Transparency</td><td>Straightforward communication and reporting.</td></tr>
+                    <tr><td>Client-Centric</td><td>Every solution is tailored with the client's best interest in mind.</td></tr>
+                    <tr><td>Innovation</td><td>Modern tools and strategies for optimal results.</td></tr>
+                    <tr><td>Community Focused</td><td>We're invested in your success and the prosperity of our community, supporting growth at every level.</td></tr>
+		    <tr><td>Secrecy Preservation</td><td>We are well recognised is maintaining secrecy of our 1000+ client investments & portfolios over seamless services being offered for close to 2 decades now</td></tr>
+
+                </tbody>
+            </table>
+        </div>
+
+        <div class="section">
+            <h2>Our Approach</h2>
+            <ol class="approach-list">
+                <li>We Understand You – We conduct a deep dive into your goals and financial profile.</li>
+                <li>We Design the Blueprint – We craft a collaborative, customized financial plan.</li>
+                <li>We Implement with Precision – We execute strategies with meticulous attention and accountability.</li>
+                <li>We Review and Adapt – We provide regular updates and adjust plans to align with your evolving needs.</li>
+            </ol>
+        </div>
+
+        <div class="section get-in-touch">
+            <h2>Get in Touch</h2>
+            <p>Interested in a financial consultation? Contact us to begin your journey with Inaya Financial Services.</p>
+            <a href="IFS.HTML#contact" class="cta-button">Contact Us</a>
+        </div>
+    </div>
+
+    <footer>
+        <h4>Contact us:</h4>
+        <div class="footer-contact-info">
+            <p>
+                <svg class="footer-phone-icon" viewBox="0 0 24 24">
+                  <path d="M6.62 10.79c1.44 2.83 3.76 5.14 6.59 6.59l2.2-2.2c.27-.27.67-.36 1.02-.24 1.12.37 2.33.57 3.57.57.55 0 1 .45 1 1V20c0 .55-.45 1-1 1-9.39 0-17-7.61-17-17 0-.55.45-1 1-1h3.5c.55 0 1 .45 1 1 0 1.25.2 2.47.57 3.57.11.35.02.74-.25 1.02L6.62 10.79z"/>
+                </svg>
+                +91 8879936020
+            </p>
+            <p>
+                <svg class="footer-phone-icon" viewBox="0 0 24 24">
+                  <path d="M6.62 10.79c1.44 2.83 3.76 5.14 6.59 6.59l2.2-2.2c.27-.27.67-.36 1.02-.24 1.12.37 2.33.57 3.57.57.55 0 1 .45 1 1V20c0 .55-.45 1-1 1-9.39 0-17-7.61-17-17 0-.55.45-1 1-1h3.5c.55 0 1 .45 1 1 0 1.25.2 2.47.57 3.57.11.35.02.74-.25 1.02L6.62 10.79z"/>
+                </svg>
+                +91 9936336276
+            </p>
+            <p>
+                <svg class="footer-phone-icon" viewBox="0 0 24 24">
+                  <path d="M6.62 10.79c1.44 2.83 3.76 5.14 6.59 6.59l2.2-2.2c.27-.27.67-.36 1.02-.24 1.12.37 2.33.57 3.57.57.55 0 1 .45 1 1V20c0 .55-.45 1-1 1-9.39 0-17-7.61-17-17 0-.55.45-1 1-1h3.5c.55 0 1 .45 1 1 0 1.25.2 2.47.57 3.57.11.35.02.74-.25 1.02L6.62 10.79z"/>
+                </svg>
+                +91 9335097946
+            </p>
+            <p>
+                <svg class="footer-phone-icon" viewBox="0 0 24 24">
+                    <path d="M20 4H4c-1.1 0-1.99.9-1.99 2L2 18c0 1.1.9 2 2 2h16c1.1 0 2-.9 2-2V6c0-1.1-.9-2-2-2zm0 4l-8 5-8-5V6l8 5 8-5v2z"/>
+                </svg>
+                <a href="mailto:inayafinancialservices@gmail.com">inayafinancialservices@gmail.com</a>
+            </p>
+        </div>
+        <p>&copy; 2025 Inaya Financial Services. All rights reserved.</p>
+    </footer>
+
+    <!-- Back to Top Button -->
+    <button onclick="topFunction()" id="backToTopBtn" title="Go to top">↑</button>
+
+    <script>
+        // Get the button
+        let mybutton = document.getElementById("backToTopBtn");
+
+        // When the user scrolls down 20px from the top of the document, show the button
+        window.onscroll = function() {scrollFunction()};
+
+        function scrollFunction() {
+          if (document.body.scrollTop > 20 || document.documentElement.scrollTop > 20) {
+            mybutton.style.display = "block";
+          } else {
+            mybutton.style.display = "none";
+          }
+        }
+
+        // When the user clicks on the button, scroll to the top of the document
+        function topFunction() {
+          document.body.scrollTop = 0; // For Safari
+          document.documentElement.scrollTop = 0; // For Chrome, Firefox, IE and Opera
+        }
+    </script>
+</body>
+</html>
