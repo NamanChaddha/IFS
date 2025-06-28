@@ -3,6 +3,7 @@
 <head>
     <meta charset="UTF-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <link rel="shortcut icon" href="favicon.ico">
     <title>Inaya Financial Services - Our Loan Services</title>
     <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;500;600;700&display=swap" rel="stylesheet">
     <style>
@@ -793,7 +794,7 @@
     <section id="contact">
         <p class="contact-info-text">Click on our services tab to know more!</p>
         <h2>Contact Us</h2>
-        <form action="https://api.web3forms.com/submit" method="POST">
+        <form method="POST" id="form">
     
           <!-- Replace with your Access Key -->
           <input type="hidden" name="access_key" value="e207ecbf-97a5-4736-95dd-f6e82c544f72">
@@ -805,9 +806,6 @@
       
           <!-- Honeypot Spam Protection -->
           <input type="checkbox" name="botcheck" class="hidden" style="display: none;">
-      
-          <!-- Custom Confirmation / Success Page -->
-          <input type="hidden" name="redirect" value="">
       
           <button type="submit">Submit Form</button>
     
@@ -862,6 +860,44 @@
       </footer>
 
     <script>
+    const form = document.getElementById('form');
+const result = document.getElementById('result');
+
+form.addEventListener('submit', function(e) {
+  e.preventDefault();
+  const formData = new FormData(form);
+  const object = Object.fromEntries(formData);
+  const json = JSON.stringify(object);
+  result.innerHTML = "Please wait..."
+
+    fetch('https://api.web3forms.com/submit', {
+            method: 'POST',
+            headers: {
+                'Content-Type': 'application/json',
+                'Accept': 'application/json'
+            },
+            body: json
+        })
+        .then(async (response) => {
+            let json = await response.json();
+            if (response.status == 200) {
+                result.innerHTML = "<h5>Your query has been submitted.</h5>";
+            } else {
+                console.log(response);
+                result.innerHTML = "Your query could not be submitted. Please feel free to retry or to contact us directly at inayafinancialservices@gmail.com";
+            }
+        })
+        .catch(error => {
+            console.log(error);
+            result.innerHTML = "Your query could not be submitted. Please feel free to retry or to contact us directly at inayafinancialservices@gmail.com";
+        })
+        .then(function() {
+            form.reset();
+            setTimeout(() => {
+                result.style.display = "none";
+            }, 3000);
+        });
+});
         // Function to send email
         function sendEmail(event) {
             event.preventDefault(); // Prevent default form submission
