@@ -770,9 +770,6 @@
       <!-- Honeypot Spam Protection -->
       <input type="checkbox" name="botcheck" class="hidden" style="display: none;">
   
-      <!-- Custom Confirmation / Success Page -->
-      <!-- <input type="hidden" name="redirect" value="https://inayafinserv.com#contact"> -->
-  
       <button type="submit">Submit Form</button>
 
       <!--For showing the form submission result-->
@@ -846,18 +843,15 @@ form.addEventListener('submit', function(e) {
         .then(async (response) => {
             let json = await response.json();
             if (response.status == 200) {
-                result.innerHTML = "<h4>Your query has been submitted.</h4>";
-                alert("<h4>Your query has been submitted.</h4>");
+                result.innerHTML = "<h5>Your query has been submitted.</h5>";
             } else {
                 console.log(response);
                 result.innerHTML = "Your query could not be submitted. Please feel free to retry or to contact us directly at inayafinancialservices@gmail.com";
-                alert("Your query could not be submitted. Please feel free to retry or to contact us directly at inayafinancialservices@gmail.com");
             }
         })
         .catch(error => {
             console.log(error);
             result.innerHTML = "Your query could not be submitted. Please feel free to retry or to contact us directly at inayafinancialservices@gmail.com";
-            alert("Your query could not be submitted. Please feel free to retry or to contact us directly at inayafinancialservices@gmail.com");
         })
         .then(function() {
             form.reset();
