@@ -1,0 +1,529 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Inaya Financial Services - Our Loan Services</title>
+    <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;500;600;700&display=swap" rel="stylesheet">
+    <style>
+        /* Base Styles & Reset (Copied from IFS.HTML) */
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+
+        body {
+            font-family: 'Poppins', sans-serif;
+            background-color: #f0f4f8; /* Light background */
+            color: #333;
+            line-height: 1.6;
+            position: relative;
+        }
+
+        /* Marquee Section (Copied from IFS.HTML) */
+        .marquee-container {
+            background-color: #144272;
+            color: #ffb703;
+            padding: 10px 0;
+            overflow: hidden;
+            white-space: nowrap;
+        }
+
+        .marquee-content {
+            display: inline-block;
+            animation: marquee 19s linear infinite;
+            padding-left: 100%;
+        }
+
+        @keyframes marquee {
+            0% { transform: translateX(0%); }
+            100% { transform: translateX(-100%); }
+        }
+
+        /* Header Section (Copied from IFS.HTML, adapted for loan services page title) */
+        header {
+            position: relative;
+            background: linear-gradient(135deg, #1f4287, #2c5a9b);
+            color: white;
+            text-align: center;
+            padding: 80px 20px 60px 20px;
+            box-shadow: 0 4px 15px rgba(0,0,0,0.2);
+        }
+
+        header::before {
+            content: '';
+            position: absolute;
+            inset: 0;
+            z-index: 0;
+        }
+
+        header h1, header p, .header-buttons, .header img {
+            position: relative;
+            z-index: 1;
+        }
+
+        header img {
+            max-width: 200px;
+            margin-bottom: 20px;
+            border-radius: 8px;
+            box-shadow: 0 4px 10px rgba(0,0,0,0.2);
+        }
+
+        header h1 {
+            font-size: 3.5em;
+            margin-bottom: 10px;
+            font-weight: 700;
+        }
+
+        header p {
+            font-size: 1.3em;
+            opacity: 0.9;
+        }
+
+        .header-buttons {
+            margin-top: 30px;
+            display: flex;
+            flex-wrap: wrap;
+            justify-content: center;
+            gap: 15px;
+        }
+
+        .header-buttons button {
+            background-color: #144272;
+            color: white;
+            padding: 12px 25px;
+            border: none;
+            border-radius: 8px;
+            cursor: pointer;
+            font-weight: 600;
+            transition: background-color 0.3s ease, transform 0.2s ease;
+            box-shadow: 0 2px 8px rgba(0,0,0,0.1);
+        }
+
+        .header-buttons button:hover {
+            background-color: #205295;
+            transform: translateY(-2px);
+        }
+
+        /* General Section Styling (Copied from IFS.HTML) */
+        section {
+            padding: 80px 20px;
+            max-width: 1100px;
+            margin: auto;
+        }
+
+        h2 {
+            text-align: center;
+            margin-bottom: 40px;
+            font-size: 2.8em;
+            color: #144272;
+            font-weight: 700;
+            position: relative;
+        }
+
+        h2::after {
+            content: '';
+            width: 70px;
+            height: 4px;
+            background-color: #ffb703;
+            position: absolute;
+            bottom: -15px;
+            left: 50%;
+            transform: translateX(-50%);
+            border-radius: 2px;
+        }
+
+        /* Service Categories Intro (Adapted for loan focus) */
+        .service-categories-intro {
+            background-color: white;
+            border-radius: 15px;
+            box-shadow: 0 8px 20px rgba(0,0,0,0.1);
+            padding: 40px;
+            text-align: center;
+            margin-top: 40px;
+            position: relative;
+            z-index: 2;
+        }
+
+        .service-categories-intro p {
+            font-size: 1.15em;
+            color: #555;
+            max-width: 800px;
+            margin: 0 auto;
+            line-height: 1.7;
+        }
+
+        /* NEW: Individual Loan Section Styling */
+        .loan-section-container {
+            margin-top: 40px;
+        }
+
+        .loan-item {
+            background-color: white; /* Default background */
+            border-radius: 15px;
+            box-shadow: 0 6px 18px rgba(0,0,0,0.1);
+            padding: 50px 40px; /* Increased padding */
+            margin-bottom: 30px; /* Space between stacked items */
+            text-align: center; /* Center content for better visual appeal */
+            transition: transform 0.3s ease, box-shadow 0.3s ease;
+        }
+
+        .loan-item:hover {
+            transform: translateY(-8px);
+            box-shadow: 0 10px 25px rgba(0,0,0,0.18);
+        }
+
+        /* Alternating backgrounds for vibrancy */
+        .loan-item:nth-child(even) {
+            background-color: #fdfdfd; /* Slightly off-white for subtle contrast */
+        }
+
+        .loan-item:nth-child(odd) {
+             background-color: #eaf1f8; /* Light blue from your existing palette */
+        }
+
+
+        .loan-item .loan-icon {
+            font-size: 4em; /* Larger icons */
+            color: #ffb703; /* Yellow color */
+            margin-bottom: 25px; /* More space below icon */
+            display: block;
+            text-align: center;
+        }
+
+        .loan-item h3 {
+            font-size: 2.2em; /* Larger headings */
+            color: #144272; /* Dark blue */
+            margin-bottom: 20px; /* More space below heading */
+            font-weight: 700; /* Bolder heading */
+        }
+
+        .loan-item p {
+            font-size: 1.1em; /* Slightly larger paragraph text */
+            color: #444;
+            line-height: 1.7;
+            max-width: 800px; /* Constrain paragraph width for readability */
+            margin: 0 auto 10px auto; /* Center and add margin */
+        }
+
+        /* Call to action for each loan type */
+        .loan-item .cta-button-small {
+            display: inline-block;
+            background-color: #144272;
+            color: white;
+            padding: 12px 25px;
+            border: none;
+            border-radius: 8px;
+            cursor: pointer;
+            font-weight: 600;
+            transition: background-color 0.3s ease, transform 0.2s ease;
+            text-decoration: none; /* Remove underline for links */
+            margin-top: 20px; /* Space above the button */
+        }
+
+        .loan-item .cta-button-small:hover {
+            background-color: #205295;
+            transform: translateY(-2px);
+        }
+
+
+        /* Contact Us Section (Copied from IFS.HTML) */
+        #contact {
+            padding-top: 80px;
+        }
+
+        .contact-info-text {
+            text-align: center;
+            font-size: 1.1em;
+            color: #144272;
+            margin-bottom: 15px;
+            font-weight: 600;
+        }
+
+        .direct-mail-text {
+            text-align: center;
+            margin-top: 25px;
+            font-size: 0.95em;
+            color: #555;
+        }
+
+        .direct-mail-text a {
+            color: #144272;
+            font-weight: 600;
+            text-decoration: underline;
+            transition: color 0.3s ease;
+        }
+
+        .direct-mail-text a:hover {
+            color: #ffb703;
+        }
+
+        form {
+            display: flex;
+            flex-direction: column;
+            gap: 15px;
+            background: white;
+            padding: 30px;
+            border-radius: 10px;
+            box-shadow: 0 4px 8px rgba(0,0,0,0.1);
+        }
+
+        form input, form textarea {
+            padding: 12px;
+            border: 1px solid #ccc;
+            border-radius: 5px;
+            font-family: inherit;
+            background-color: #f8fbff;
+        }
+
+        form button {
+            background-color: #144272;
+            color: white;
+            padding: 12px;
+            border: none;
+            border-radius: 5px;
+            cursor: pointer;
+            transition: background-color 0.3s ease;
+        }
+
+        form button:hover {
+            background-color: #205295;
+        }
+
+        /* Footer Section (Copied from IFS.HTML) */
+        footer {
+            background-color: #144272;
+            color: white;
+            text-align: center;
+            padding: 25px;
+            margin-top: 60px;
+            font-size: 0.9em;
+            box-shadow: 0 -4px 15px rgba(0, 0, 0, 0.1);
+        }
+
+        footer h4 {
+            color: #ffb703;
+            font-size: 1.2em;
+            margin-bottom: 15px;
+            font-weight: 600;
+        }
+
+        .footer-contact-info {
+            margin-top: 15px;
+            margin-bottom: 15px;
+        }
+
+        .footer-contact-info p {
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            margin-bottom: 8px;
+            color: white;
+            font-weight: 500;
+        }
+
+        .footer-contact-info svg {
+            fill: #ffb703;
+            width: 18px;
+            height: 18px;
+            margin-right: 8px;
+            vertical-align: middle;
+        }
+
+        .footer-contact-info a {
+            color: white;
+            text-decoration: none;
+            transition: color 0.3s ease;
+        }
+
+        .footer-contact-info a:hover {
+            color: #ffb703;
+        }
+
+        /* Responsive Adjustments */
+        @media (max-width: 768px) {
+            header {
+                padding: 60px 15px 40px 15px;
+            }
+            header h1 {
+                font-size: 2.5em;
+            }
+            header p {
+                font-size: 1em;
+            }
+            .header-buttons button {
+                flex-basis: 45%;
+                margin-bottom: 10px;
+                padding: 10px 20px;
+            }
+            section {
+                padding: 50px 15px;
+            }
+            h2 {
+                font-size: 2em;
+                margin-bottom: 30px;
+            }
+            .service-categories-intro {
+                padding: 30px;
+                margin-top: 40px;
+            }
+            .service-categories-intro p {
+                font-size: 1em;
+            }
+
+            /* Loan items responsiveness */
+            .loan-item {
+                padding: 35px 20px; /* Adjust padding for smaller screens */
+                margin-bottom: 20px; /* Reduce margin */
+            }
+            .loan-item .loan-icon {
+                font-size: 3em; /* Smaller icons on mobile */
+                margin-bottom: 15px;
+            }
+            .loan-item h3 {
+                font-size: 1.8em; /* Smaller headings on mobile */
+                margin-bottom: 15px;
+            }
+            .loan-item p {
+                font-size: 0.95em; /* Smaller text on mobile */
+            }
+            .loan-item .cta-button-small {
+                padding: 10px 20px;
+                font-size: 0.9em;
+            }
+
+            form {
+                padding: 25px;
+            }
+        }
+    </style>
+</head>
+<body>
+    <div class="marquee-container">
+        <div class="marquee-content">
+            Welcome to Inaya Financial Services - Your Partner in Financial Growth! &nbsp;&nbsp;&nbsp; Maximizing Your Returns with Expert Guidance! &nbsp;&nbsp;&nbsp; Secure Your Future Today!
+        </div>
+    </div>
+
+    <header>
+        <img src="Logo.png" alt="Inaya Financial Services Logo" style="max-width: 200px; margin-bottom: 20px;" onerror="this.onerror=null; this.src='https://placehold.co/200x80/CCCCCC/FFFFFF?text=Inaya+FS';"/>
+        <h1>Our Loan Services</h1>
+        <p>Your trusted partner for all your loan needs</p>
+        <div class="header-buttons">
+            <button onclick="location.href='IFS.HTML'">Home</button>
+            <button onclick="location.href='ourfounders.html'">About Us</button>
+            <button onclick="location.href='services.html'">Our Services</button>
+            <button onclick="location.href='vision.html'">Our Vision</button>
+            <button onclick="location.href='tribute.html'">Tribute</button>
+        </div>
+    </header>
+
+    <section class="service-categories-intro">
+        <p>At Inaya Financial Services, we specialize in providing comprehensive loan solutions tailored to your unique requirements. Whether you're looking to buy a home, expand your business, or manage personal expenses, our expert team offers competitive rates and seamless processing to help you achieve your financial goals.</p>
+    </section>
+
+    <section>
+        <h2>Explore Our Loan Offerings</h2>
+        <div class="loan-section-container">
+            <!-- Home Loans -->
+            <div class="loan-item">
+                <span class="loan-icon">🏠</span>
+                <h3>Home Loans</h3>
+                <p>Realize your dream of homeownership with our flexible and competitive home loan options. We assist you through every step of the application process, ensuring a smooth and hassle-free experience tailored to your financial needs.</p>
+                <a href="#contact" class="cta-button-small">Learn More & Apply</a>
+            </div>
+
+            <!-- Business Loans -->
+            <div class="loan-item">
+                <span class="loan-icon">💼</span>
+                <h3>Business Loans</h3>
+                <p>Fuel your entrepreneurial dreams with our customized business loan solutions. Whether for expansion, working capital, or new projects, we provide the financial backing to support your business growth and success.</p>
+                <a href="#contact" class="cta-button-small">Learn More & Apply</a>
+            </div>
+
+            <!-- Personal Loans -->
+            <div class="loan-item">
+                <span class="loan-icon">💰</span>
+                <h3>Personal Loans</h3>
+                <p>Meet your immediate financial needs, from medical emergencies to unexpected expenses or travel plans, with our quick and easy personal loans. We offer minimal documentation and fast disbursal for your convenience.</p>
+                <a href="#contact" class="cta-button-small">Learn More & Apply</a>
+            </div>
+
+            <!-- Loan Against Property (LAP) -->
+            <div class="loan-item">
+                <span class="loan-icon">🏡</span>
+                <h3>Loan Against Property (LAP)</h3>
+                <p>Unlock the value of your property with our Loan Against Property. This offering provides high-value funding at lower interest rates compared to unsecured loans, making it perfect for significant financial requirements or investments.</p>
+                <a href="#contact" class="cta-button-small">Learn More & Apply</a>
+            </div>
+        </div>
+    </section>
+
+    <section id="contact">
+        <p class="contact-info-text">Have questions about our loan services? Reach out to us!</p>
+        <h2>Contact Us</h2>
+        <form onsubmit="sendEmail(event)">
+            <input type="text" id="name" name="name" placeholder="Your Name" required />
+            <input type="email" id="email" name="email" placeholder="Your Email" required />
+            <textarea id="message" name="message" placeholder="Your Message" rows="5" required></textarea>
+            <button type="submit">Send Message</button>
+        </form>
+        <p class="direct-mail-text">If you have trouble reaching us via the form, you can mail us directly at: <a href="mailto:inayafinancialservices@gmail.com">inayafinancialservices@gmail.com</a></p>
+    </section>
+
+    <footer>
+        <h4>Contact us:</h4>
+        <div class="footer-contact-info">
+            <p>
+                <svg class="footer-phone-icon" viewBox="0 0 24 24">
+                  <path d="M6.62 10.79c1.44 2.83 3.76 5.14 6.59 6.59l2.2-2.2c.27-.27.67-.36 1.02-.24 1.12.37 2.33.57 3.57.57.55 0 1 .45 1 1V20c0 .55-.45 1-1 1-9.39 0-17-7.61-17-17 0-.55.45-1 1-1h3.5c.55 0 1 .45 1 1 0 1.25.2 2.47.57 3.57.11.35.02.74-.25 1.02L6.62 10.79z"/>
+                </svg>
+                +91 8879936020
+            </p>
+            <p>
+                <svg class="footer-phone-icon" viewBox="0 0 24 24">
+                  <path d="M6.62 10.79c1.44 2.83 3.76 5.14 6.59 6.59l2.2-2.2c.27-.27.67-.36 1.02-.24 1.12.37 2.33.57 3.57.57.55 0 1 .45 1 1V20c0 .55-.45 1-1 1-9.39 0-17-7.61-17-17 0-.55.45-1 1-1h3.5c.55 0 1 .45 1 1 0 1.25.2 2.47.57 3.57.11.35.02.74-.25 1.02L6.62 10.79z"/>
+                </svg>
+                +91 9936336276
+            </p>
+            <p>
+                <svg class="footer-phone-icon" viewBox="0 0 24 24">
+                  <path d="M6.62 10.79c1.44 2.83 3.76 5.14 6.59 6.59l2.2-2.2c.27-.27.67-.36 1.02-.24 1.12.37 2.33.57 3.57.57.55 0 1 .45 1 1V20c0 .55-.45 1-1 1-9.39 0-17-7.61-17-17 0-.55.45-1 1-1h3.5c.55 0 1 .45 1 1 0 1.25.2 2.47.57 3.57.11.35.02.74-.25 1.02L6.62 10.79z"/>
+                </svg>
+                +91 9335097946
+            </p>
+            <p>
+                <svg class="footer-phone-icon" viewBox="0 0 24 24">
+                    <path d="M20 4H4c-1.1 0-1.99.9-1.99 2L2 18c0 1.1.9 2 2 2h16c1.1 0 2-.9 2-2V6c0-1.1-.9-2-2-2zm0 4l-8 5-8-5V6l8 5 8-5v2z"/>
+                </svg>
+                <a href="mailto:inayafinancialservices@gmail.com">inayafinancialservices@gmail.com</a>
+            </p>
+        </div>
+        <p>&copy; 2025 Inaya Financial Services. All rights reserved.</p>
+    </footer>
+
+    <script>
+        // Function to send email (copied from IFS.HTML)
+        function sendEmail(event) {
+            event.preventDefault(); // Prevent default form submission
+
+            const name = document.getElementById('name').value;
+            const email = document.getElementById('email').value;
+            const message = document.getElementById('message').value;
+
+            const subject = encodeURIComponent(`Inaya Financial Services Inquiry from ${name}`);
+            const body = encodeURIComponent(`Name: ${name}\nEmail: ${email}\n\nMessage:\n${message}`);
+
+            // Open the user's default email client
+            const mailtoLink = `mailto:inayafinancialservices@gmail.com?subject=${subject}&body=${body}`;
+            const tempLink = document.createElement("a");
+            tempLink.href = mailtoLink;
+            tempLink.style.display = "none";
+            document.body.appendChild(tempLink);
+            tempLink.click();
+            document.body.removeChild(tempLink);
+        }
+    </script>
+</body>
+</html>

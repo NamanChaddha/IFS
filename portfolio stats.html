@@ -5,36 +5,7 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Inaya Financial Services - Our Reach</title>
     <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;500;600;700&display=swap" rel="stylesheet">
-    <style>/*ii*/
-      header {
-        padding: 60px 15px 40px 15px;
-      }
-      header h1 {
-        font-size: 2.5em;
-      }
-      header p {
-        font-size: 1em;
-      }
-      .header-buttons button {
-        flex-basis: 45%; /* Two buttons per row */
-        margin-bottom: 10px;
-        padding: 10px 20px;
-      }
-      .cta-button {
-        padding: 12px 25px;
-        font-size: 1em;
-      }
-      section {
-        padding: 50px 15px;
-      }
-      h2 {
-        font-size: 2em;
-        margin-bottom: 30px;
-      }
-      .welcome-section {
-        padding: 30px;
-        margin-top: 40px; /* Adjusted to remove negative margin */
-      }/*ii*/
+    <style>
         /* Base Styles & Reset */
         * {
             margin: 0;
@@ -47,44 +18,166 @@
             background-color: #f0f4f8; /* Light background */
             color: #333;
             line-height: 1.6;
-            padding: 20px;
-        }
-	
-        .container {
-            max-width: 1200px;
-            margin: 40px auto;
-            padding: 20px;
-            background-color: #ffffff;
-            border-radius: 15px;
-            box-shadow: 0 8px 20px rgba(0,0,0,0.1);
+            display: flex; /* Use flexbox for overall layout */
+            flex-direction: column; /* Stack content vertically */
+            min-height: 100vh; /* Ensure body takes full viewport height */
         }
 
-        h1 {
-            text-align: center;
-            font-size: 3em;
-            color: #144272;
-            margin-bottom: 40px;
-            font-weight: 700;
+        /* Marquee Section (Top) */
+        .marquee-container {
+            background-color: #144272;
+            color: #ffb703;
+            padding: 10px 0;
+            overflow: hidden;
+            white-space: nowrap;
+        }
+
+        .marquee-content {
+            display: inline-block;
+            animation: marquee 19s linear infinite;
+            padding-left: 100%;
+        }
+
+        @keyframes marquee {
+            0% { transform: translateX(0%); }
+            100% { transform: translateX(-100%); }
+        }
+
+        /* Header Section */
+        header {
             position: relative;
+            background: linear-gradient(135deg, #1f4287, #2c5a9b); /* Attractive blue gradient */
+            color: white;
+            text-align: center;
+            padding: 80px 20px 60px 20px; /* Adjusted padding */
+            box-shadow: 0 4px 15px rgba(0,0,0,0.2);
         }
 
-        h1::after {
+        header::before {
+            content: '';
+            position: absolute;
+            inset: 0;
+            z-index: 0;
+        }
+
+        header h1, header p, .header-buttons, .header img, .cta-button {
+            position: relative;
+            z-index: 1;
+        }
+
+        header img { /* Styling for the logo image */
+            max-width: 200px;
+            margin-bottom: 20px;
+            border-radius: 8px;
+            box-shadow: 0 4px 10px rgba(0,0,0,0.2);
+        }
+
+        header h1 {
+            font-size: 3.5em; /* Larger heading */
+            margin-bottom: 20px; /* Increased margin for the line */
+            font-weight: 700;
+            color: white; /* Explicitly set to white */
+            position: relative; /* Needed for ::after pseudo-element */
+        }
+
+        /* Line below header h1 */
+        header h1::after {
             content: '';
             width: 80px;
             height: 5px;
-            background-color: #ffb703;
+            background-color: #ffb703; /* Yellow line */
             position: absolute;
-            bottom: -15px;
+            bottom: -10px; /* Position below the text */
             left: 50%;
             transform: translateX(-50%);
             border-radius: 3px;
         }
 
+        /* New style for the tagline under the main header title */
+        header .tagline {
+            font-size: 1.3em; /* Larger subheading */
+            opacity: 0.9;
+            color: white; /* Explicitly set to white */
+            margin-bottom: 20px; /* Space between tagline and buttons */
+            margin-top: 25px; /* Space from the line above */
+        }
+
+        .header-buttons {
+            margin-top: 30px; /* More space above buttons */
+            display: flex;
+            flex-wrap: wrap; /* Allow buttons to wrap on smaller screens */
+            justify-content: center;
+            gap: 15px;
+        }
+
+        .header-buttons button {
+            background-color: #144272;
+            color: white;
+            padding: 12px 25px; /* Larger buttons */
+            border: none;
+            border-radius: 8px; /* More rounded */
+            cursor: pointer;
+            font-weight: 600;
+            transition: background-color 0.3s ease, transform 0.2s ease;
+            box-shadow: 0 2px 8px rgba(0,0,0,0.1);
+        }
+
+        .header-buttons button:hover {
+            background-color: #205295;
+            transform: translateY(-2px);
+        }
+
+        .cta-button {
+            margin-top: 40px; /* More space above primary CTA */
+            display: inline-block;
+            padding: 15px 30px; /* Larger primary CTA */
+            background-color: #ffb703;
+            color: #144272; /* Dark blue text on yellow button */
+            text-decoration: none;
+            border-radius: 8px;
+            font-weight: 700;
+            font-size: 1.1em;
+            transition: background-color 0.3s ease, transform 0.2s ease;
+            box-shadow: 0 4px 12px rgba(0,0,0,0.2);
+        }
+
+        .cta-button:hover {
+        background-color: #e0a302;
+        transform: translateY(-3px);
+        }
+
+        /* Main content container */
+        .container {
+            max-width: 1200px;
+            margin: 40px auto; /* Adjusted margin to give space after header */
+            padding: 20px;
+            background-color: #ffffff;
+            border-radius: 15px;
+            box-shadow: 0 8px 20px rgba(0,0,0,0.1);
+            flex-grow: 1; /* Allow container to take available space */
+        }
+
+        /* Removed: .container h1 and .container h1::after as the main H1 is now in the header */
+
         .portfolio-grid {
             display: grid;
-            grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
+            grid-template-columns: repeat(auto-fit, minmax(280px, 1fr)); /* Original good intent */
             gap: 30px;
             padding-top: 20px;
+        }
+
+        /* Force 2 columns on medium screens and up */
+        @media (min-width: 600px) {
+            .portfolio-grid {
+                grid-template-columns: repeat(2, 1fr);
+            }
+        }
+
+        /* Force 3 columns on larger screens and up */
+        @media (min-width: 900px) {
+            .portfolio-grid {
+                grid-template-columns: repeat(3, 1fr);
+            }
         }
 
         .portfolio-card {
@@ -151,81 +244,78 @@
             line-height: 1;
         }
 
-        /* Responsive Adjustments */
-        @media (max-width: 768px) {
-            h1 {
-                font-size: 2.2em;
-            }
-            .container {
-                margin: 20px auto;
-                padding: 15px;
-            }
-            .portfolio-card {
-                padding: 25px;
-            }
-            .portfolio-card h2 {
-                font-size: 1.8em;
-            }
-            .stat-number {
-                font-size: 2.2em;
-            }
+        /* Back to Home button */
+        .back-button-container {
+            text-align: center;
+            margin-top: 40px; /* Adjusted margin */
         }
 
-        @media (max-width: 480px) {
-            body {
-                padding: 10px;
-            }
-            h1 {
-                font-size: 1.8em;
-                margin-bottom: 30px;
-            }
-            .portfolio-grid {
-                grid-template-columns: 1fr; /* Stack cards on very small screens */
-            }
-            .portfolio-card {
-                padding: 20px;
-            }
-            .stat-number {
-                font-size: 2em;
-            }
+        .back-button {
+            display: inline-block;
+            padding: 12px 28px; /* Larger padding for button */
+            background-color: #ffb703;
+            color: #144272; /* Dark blue text on yellow button */
+            text-decoration: none;
+            border-radius: 8px; /* More rounded button */
+            font-weight: 700; /* Bolder button text */
+            transition: background-color 0.3s ease, transform 0.2s ease; /* Smooth hover and press effect */
+            box-shadow: 0 4px 10px rgba(0,0,0,0.1); /* Shadow for button */
         }
-/* New Marquee for Risk Factors */
-.risk-marquee-container {
-  background-color: #ffb703; /* Yellow background for contrast */
-  color: #144272; /* Dark blue text */
-  padding: 10px 0;
-  overflow: hidden;
-  white-space: nowrap;
-  margin-top: auto; /* Push it just above the footer */
-  box-shadow: 0 -2px 8px rgba(0,0,0,0.1); /* Subtle shadow above */
-}
 
-.risk-marquee-content {
-  display: inline-block;
-  animation: riskMarquee 50s linear infinite; /* Adjusted duration for longer text */
-  padding-left: 100%;
-  font-size: 0.9em;
-  font-weight: 500;
-}
+        .back-button:hover {
+            background-color: #e0a302;
+            transform: translateY(-2px); /* Slight lift on hover */
+        }
 
-@keyframes riskMarquee {
-  0% { transform: translateX(0%); }
-  100% { transform: translateX(-100%); }
-}
+        .back-button:active {
+            transform: translateY(0); /* Press down effect */
+            box-shadow: 0 2px 5px rgba(0,0,0,0.2);
+        }
 
-/* Responsive adjustment for mobile */
-@media (max-width: 768px) {
-  .risk-marquee-content {
-    font-size: 0.8em; /* Smaller font for mobile */
-  }
-}
- /* Footer Section */
+        /* New Marquee for Risk Factors (bottom) */
+        .risk-marquee-container {
+            background-color: #ffb703; /* Yellow background for contrast */
+            color: #144272; /* Dark blue text */
+            padding: 10px 0;
+            overflow: hidden;
+            white-space: nowrap;
+            margin-top: 40px; /* Ensure sufficient space from content above */
+            box-shadow: 0 -2px 8px rgba(0,0,0,0.1); /* Subtle shadow above */
+        }
+
+        .risk-marquee-content {
+            display: inline-block;
+            animation: riskMarquee 50s linear infinite; /* Adjusted duration for longer text */
+            padding-left: 100%;
+            font-size: 0.9em;
+            font-weight: 500;
+        }
+
+        @keyframes riskMarquee {
+            0% { transform: translateX(0%); }
+            100% { transform: translateX(-100%); }
+        }
+
+        .footer-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+            gap: 30px;
+        }
+
+        .footer-item {
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+        
+        }
+
+    /* Footer Section */
     footer {
       background-color: #144272;
       color: white;
       text-align: center;
       padding: 25px; /* Adjusted padding */
-      
+      margin-top: 60px; /* More space above footer */
       font-size: 0.9em;
       box-shadow: 0 -4px 15px rgba(0, 0, 0, 0.1);
     }
@@ -269,39 +359,88 @@
     .footer-contact-info a:hover {
         color: #ffb703; /* Yellow on hover */
     }
- .back-button-container {
-      text-align: center;
-      margin-top: 40px; /* Adjusted margin */
+
+    /* Map Image Styling */
+    .map-container {
+        text-align: center; /* Center the map image */
+        margin-top: 15px; /* Space above the map */
+        margin-bottom: 30px; /* Space below the map */
+        padding: 0 20px; /* Add some horizontal padding for smaller screens */
     }
 
-    .back-button {
-      display: inline-block;
-      padding: 12px 28px; /* Larger padding for button */
-      background-color: #ffb703;
-      color: #000;
-      text-decoration: none;
-      border-radius: 8px; /* More rounded button */
-      font-weight: 700; /* Bolder button text */
-      transition: background-color 0.3s ease, transform 0.2s ease; /* Smooth hover and press effect */
-      box-shadow: 0 4px 10px rgba(0,0,0,0.1); /* Shadow for button */
+    .map-container h5 {
+        color: #ffb703; /* Yellow color for the text */
+        font-size: 1.1em;
+        margin-bottom: 15px;
+        font-weight: 600;
     }
 
-    .back-button:hover {
-      background-color: #e0a302;
-      transform: translateY(-2px); /* Slight lift on hover */
+    .map-container img {
+        max-width: 20%; /* Ensure map is responsive */
+        height: auto;
+        border-radius: 10px; /* Slightly rounded corners for the map */
+        box-shadow: 0 4px 15px rgba(0,0,0,0.2); /* Add a shadow to the map */
     }
 
-    .back-button:active {
-      transform: translateY(0); /* Press down effect */
-      box-shadow: 0 2px 5px rgba(0,0,0,0.2);
-    }
+        /* Responsive Adjustments */
+        @media (max-width: 768px) {
+            header {
+                padding: 20px 15px 40px 15px;
+            }
+            header h1 {
+                font-size: 2.5em;
+            }
+            header .tagline {
+                font-size: 1em;
+            }
+            .header-buttons button {
+                flex-basis: 45%; /* Two buttons per row */
+                margin-bottom: 10px;
+                padding: 10px 20px;
+            }
+            .container {
+                margin: 20px auto;
+                padding: 15px;
+            }
+            .portfolio-card {
+                padding: 25px;
+            }
+            .portfolio-card h2 {
+                font-size: 1.8em;
+            }
+            .stat-number {
+                font-size: 2.2em;
+            }
+        }
 
+        @media (max-width: 480px) {
+            .portfolio-grid {
+                grid-template-columns: 1fr; /* Stack cards on very small screens */
+            }
+            .risk-marquee-content {
+                font-size: 0.8em; /* Smaller font for mobile */
+            }
+        }
     </style>
-
 </head>
 <body>
-    <div class="container">
+
+    <header>
         <h1>Our Portfolio at a Glance</h1>
+        <!-- A line is now visually added below this heading via CSS ::after -->
+        <p class="tagline">Providing diverse financial solutions for your growth and security.</p>
+        <div class="header-buttons">
+            <button onclick="location.href='index.html'">Home</button>
+            <button onclick="location.href='ourfounders.html'">About Us</button>
+            <button onclick="location.href='services.html'">Our services</button>
+            <button onclick="location.href='portfolio stats.html'">Assets Under Distribution</button>
+            <button onclick="location.href='vision.html'">Our Vision</button>
+            <button onclick="location.href='tribute.html'">Tribute</button>
+        </div>
+        <a href="index.html#contact" class="cta-button">Get in Touch</a>
+    </header>
+
+    <div class="container">
         <div class="portfolio-grid">
             <!-- PO Investment Card -->
             <div class="portfolio-card">
@@ -393,10 +532,10 @@
                     <div class="stat-number" data-target="30">0</div>
                 </div>
             </div>
- 		<!-- Mutual Funds Card -->
-            	<div class="portfolio-card">
-                	<h2>Health Insurance</h2>
-                	<div class="stat-item">
+            <!-- Health Insurance Card -->
+            <div class="portfolio-card">
+                <h2>Health Insurance</h2>
+                <div class="stat-item">
                     <div class="stat-label">Client Strength</div>
                     <div class="stat-number" data-target="300">0</div>
                 </div>
@@ -405,23 +544,18 @@
                     <div class="stat-number" data-target="10">0</div>
                 </div>
             </div>
-
-
         </div>
     </div>
-<div class="back-button-container">
-      <a href="IFS.html" class="back-button">Back to Home</a>
+    <div class="back-button-container">
+        <a href="index.html" class="back-button">Back to Home</a>
     </div>
-<div class="risk-marquee-container">
-    <div class="risk-marquee-content">
-        Risk Factors – Investments in Mutual Funds are subject to Market Risks. Read all scheme related documents carefully before investing. Mutual Fund Schemes do not assure or guarantee any returns. Past performances of any Mutual Fund Scheme may or may not be sustained in future. There is no guarantee that the investment objective of any suggested scheme shall be achieved. All existing and prospective investors are advised to check and evaluate the Exit loads and other cost structure (TER) applicable at the time of making the investment before finalizing on any investment decision for Mutual Funds schemes. We deal in Regular Plans only for Mutual Fund Schemes and earn a Trailing Commission on client investments. Disclosure For Commission earnings is made to clients at the time of investments. Option of Direct Plan for every Mutual Fund Scheme is available to investors offering advantage of lower expense ratio. We are not entitled to earn any commission on Direct plans. Hence we do not deal in Direct Plans.
-    </div>
-</div>
+   <!emptly for a reason>
 
-
- <footer>
-    <h4>Contact us:</h4>
+   <footer>
+    <div class="footer-grid">
+    <div class="footer-item">
     <div class="footer-contact-info">
+      <h4>Contact us:</h4>
         <p>
             <svg class="footer-phone-icon" viewBox="0 0 24 24">
               <path d="M6.62 10.79c1.44 2.83 3.76 5.14 6.59 6.59l2.2-2.2c.27-.27.67-.36 1.02-.24 1.12.37 2.33.57 3.57.57.55 0 1 .45 1 1V20c0 .55-.45 1-1 1-9.39 0-17-7.61-17-17 0-.55.45-1 1-1h3.5c.55 0 1 .45 1 1 0 1.25.2 2.47.57 3.57.11.35.02.74-.25 1.02L6.62 10.79z"/>
@@ -447,9 +581,18 @@
             <a href="mailto:inayafinancialservices@gmail.com">inayafinancialservices@gmail.com</a>
         </p>
     </div>
+  </div>
+  <div class="footer-item">
+    <!-- Map Image Section -->
+    <div class="map-container">
+        <h5>We are currently serving in Mumbai, Kanpur, and Gurugram.</h5>
+        <img src="IFSLocations.png" alt="Map of Inaya Financial Services Locations in India" onerror="this.onerror=null; this.src='https://placehold.co/600x400/144272/ffb703?text=Map+Unavailable';">
+    </div>
+  </div>
+    </div>
+
     <p>&copy; 2025 Inaya Financial Services. All rights reserved.</p>
   </footer>
-
 
     <script>
         // Function to animate numbers
@@ -508,7 +651,6 @@
         document.querySelectorAll('.portfolio-card').forEach(card => {
             observer.observe(card);
         });
-
     </script>
 </body>
 </html>
