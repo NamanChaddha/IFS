@@ -1,543 +1,297 @@
 <!DOCTYPE html>
 <html lang="en">
 <head>
-  <meta charset="UTF-8" />
-  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-  <title>Inaya Financial Services</title>
-  <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;500;600;700&display=swap" rel="stylesheet">
-  <style>
-    /* Base Styles & Reset */
-    * {
-      margin: 0;
-      padding: 0;
-      box-sizing: border-box;
-    }
-
-    body {
-      font-family: 'Poppins', sans-serif;
-      background-color: #f0f4f8; /* Light background */
-      color: #333;
-      line-height: 1.6;
-      position: relative; /* Needed for back-to-top button positioning */
-    }
-
-    /* Marquee Section */
-    .marquee-container {
-      background-color: #144272;
-      color: #ffb703;
-      padding: 10px 0;
-      overflow: hidden;
-      white-space: nowrap;
-    }
-
-    .marquee-content {
-      display: inline-block;
-      animation: marquee 19s linear infinite; /* Adjusted duration */
-      padding-left: 100%;
-    }
-
-    @keyframes marquee {
-      0% { transform: translateX(0%); }
-      100% { transform: translateX(-100%); }
-    }
-
-    /* Header Section */
-    header {
-      position: relative;
-      background: linear-gradient(135deg, #1f4287, #2c5a9b); /* Attractive blue gradient */
-      color: white;
-      text-align: center;
-      padding: 80px 20px 60px 20px; /* Adjusted padding */
-      box-shadow: 0 4px 15px rgba(0,0,0,0.2);
-    }
-
-    header::before {
-      content: '';
-      position: absolute;
-      inset: 0;
-      z-index: 0;
-    }
-
-    header h1, header p, .cta-button, .header-buttons, .header img {
-      position: relative;
-      z-index: 1;
-    }
-
-    header img { /* Styling for the logo image */
-      max-width: 200px;
-      margin-bottom: 20px;
-      border-radius: 8px;
-      box-shadow: 0 4px 10px rgba(0,0,0,0.2);
-    }
-
-    header h1 {
-      font-size: 3.5em; /* Larger heading */
-      margin-bottom: 10px;
-      font-weight: 700;
-    }
-
-    header p {
-      font-size: 1.3em; /* Larger subheading */
-      opacity: 0.9;
-    }
-
-    .header-buttons {
-      margin-top: 30px; /* More space above buttons */
-      display: flex;
-      flex-wrap: wrap; /* Allow buttons to wrap on smaller screens */
-      justify-content: center;
-      gap: 15px;
-    }
-
-    .header-buttons button {
-      background-color: #144272;
-      color: white;
-      padding: 12px 25px; /* Larger buttons */
-      border: none;
-      border-radius: 8px; /* More rounded */
-      cursor: pointer;
-      font-weight: 600;
-      transition: background-color 0.3s ease, transform 0.2s ease;
-      box-shadow: 0 2px 8px rgba(0,0,0,0.1);
-    }
-
-    .header-buttons button:hover {
-      background-color: #205295;
-      transform: translateY(-2px);
-    }
-
-    .cta-button {
-      margin-top: 40px; /* More space above primary CTA */
-      display: inline-block;
-      padding: 15px 30px; /* Larger primary CTA */
-      background-color: #ffb703;
-      color: #144272; /* Dark blue text on yellow button */
-      text-decoration: none;
-      border-radius: 8px;
-      font-weight: 700;
-      font-size: 1.1em;
-      transition: background-color 0.3s ease, transform 0.2s ease;
-      box-shadow: 0 4px 12px rgba(0,0,0,0.2);
-    }
-
-    .cta-button:hover {
-      background-color: #e0a302;
-      transform: translateY(-3px);
-    }
-
-    /* General Section Styling */
-    section {
-      padding: 80px 20px; /* Increased padding */
-      max-width: 1100px; /* Wider content area */
-      margin: auto;
-    }
-
-    h2 {
-      text-align: center;
-      margin-bottom: 40px; /* More space below heading */
-      font-size: 2.8em; /* Larger section titles */
-      color: #144272;
-      font-weight: 700;
-      position: relative;
-    }
-
-    h2::after {
-      content: '';
-      width: 70px;
-      height: 4px;
-      background-color: #ffb703;
-      position: absolute;
-      bottom: -15px;
-      left: 50%;
-      transform: translateX(-50%);
-      border-radius: 2px;
-    }
-
-    /* Welcome/About Us Snapshot */
-    .welcome-section {
-      background-color: white;
-      border-radius: 15px;
-      box-shadow: 0 8px 20px rgba(0,0,0,0.1);
-      padding: 40px;
-      text-align: center;
-      margin-top: 40px; /* Adjusted margin-top to place it after header */
-      position: relative;
-      z-index: 2;
-    }
-
-    .welcome-section p {
-      font-size: 1.15em;
-      color: #555;
-      max-width: 800px;
-      margin: 0 auto;
-      line-height: 1.7;
-    }
-
-    /* Why Choose Us Section */
-    .why-choose-us .features-grid {
-      display: grid;
-      grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
-      gap: 30px;
-    }
-
-    .why-choose-us .feature-item {
-      background: white;
-      padding: 30px;
-      border-radius: 12px;
-      box-shadow: 0 4px 15px rgba(0,0,0,0.08);
-      text-align: center;
-      transition: transform 0.3s ease, box-shadow 0.3s ease;
-      display: flex;
-      flex-direction: column;
-      align-items: center;
-    }
-
-    .why-choose-us .feature-item:hover {
-      transform: translateY(-8px);
-      box-shadow: 0 8px 25px rgba(0,0,0,0.15);
-    }
-
-    .why-choose-us .feature-item .icon {
-      font-size: 3em; /* Larger icon */
-      color: #ffb703; /* Yellow icon */
-      margin-bottom: 20px;
-    }
-
-    .why-choose-us .feature-item h3 {
-      font-size: 1.6em;
-      color: #144272;
-      margin-bottom: 10px;
-      font-weight: 600;
-    }
-
-    .why-choose-us .feature-item p {
-      font-size: 1em;
-      color: #555;
-      flex-grow: 1;
-    }
-
-    /* Our Services Section (existing) */
-    .services {
-      display: flex;
-      flex-wrap: wrap;
-      justify-content: space-around;
-      gap: 20px;
-    }
-
-    .service {
-      background: white;
-      padding: 20px;
-      border-radius: 10px;
-      box-shadow: 0 4px 8px rgba(0,0,0,0.05);
-      flex: 1 1 280px;
-    }
-
-    /* Mid-Page CTA Section */
-    .mid-cta-section {
-      background: linear-gradient(90deg, #1f4287, #144272);
-      color: white;
-      text-align: center;
-      padding: 60px 20px;
-      margin-top: 60px; /* Space above */
-      border-radius: 15px;
-      box-shadow: 0 8px 20px rgba(0,0,0,0.2);
-    }
-
-    .mid-cta-section h2 {
-      color: white; /* White heading on dark background */
-    }
-
-    .mid-cta-section h2::after {
-        background-color: #ffb703; /* Yellow line */
-    }
-
-    .mid-cta-section p {
-      font-size: 1.2em;
-      margin-bottom: 30px;
-      max-width: 800px;
-      margin-left: auto;
-      margin-right: auto;
-    }
-
-    /* Testimonials Section */
-    .testimonials-section {
-      background-color: #eaf1f8; /* Light blue background for contrast */
-      border-radius: 15px;
-      padding: 60px 20px;
-      margin-top: 80px;
-      box-shadow: 0 8px 20px rgba(0,0,0,0.1);
-    }
-
-    .testimonials-grid {
-      display: grid;
-      grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
-      gap: 30px;
-    }
-
-    .testimonial-card {
-      background: white;
-      padding: 30px;
-      border-radius: 12px;
-      box-shadow: 0 4px 15px rgba(0,0,0,0.08);
-      text-align: left;
-      transition: transform 0.3s ease, box-shadow 0.3s ease;
-    }
-
-    .testimonial-card:hover {
-      transform: translateY(-5px);
-      box-shadow: 0 8px 20px rgba(0,0,0,0.15);
-    }
-
-    .testimonial-card .quote-icon {
-      font-size: 2.5em;
-      color: #ffb703;
-      margin-bottom: 15px;
-      display: block;
-    }
-
-    .testimonial-card p {
-      font-style: italic;
-      margin-bottom: 15px;
-      color: #444;
-      font-size: 1.05em;
-    }
-
-    .testimonial-card .author {
-      font-weight: 600;
-      color: #144272;
-      font-size: 1.1em;
-    }
-
-    .testimonial-card .author span {
-      font-weight: 400;
-      color: #777;
-      font-size: 0.9em;
-    }
-
-    /* News/Insights Section */
-    .news-section {
-      padding-top: 80px;
-      padding-bottom: 80px;
-    }
-
-    .news-grid {
-      display: grid;
-      grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
-      gap: 30px;
-    }
-
-    .news-item {
-      background: white;
-      border-radius: 12px;
-      box-shadow: 0 4px 15px rgba(0,0,0,0.08);
-      overflow: hidden;
-      transition: transform 0.3s ease, box-shadow 0.3s ease;
-    }
-
-    .news-item:hover {
-      transform: translateY(-5px);
-      box-shadow: 0 8px 20px rgba(0,0,0,0.15);
-    }
-
-    .news-item img {
-      width: 100%;
-      height: 200px;
-      object-fit: cover;
-    }
-
-    .news-item-content {
-      padding: 25px;
-    }
-
-    .news-item-content h3 {
-      font-size: 1.5em;
-      color: #144272;
-      margin-bottom: 10px;
-      font-weight: 600;
-    }
-
-    .news-item-content p {
-      font-size: 0.95em;
-      color: #555;
-      margin-bottom: 15px;
-      line-height: 1.6;
-    }
-
-    .news-item-content .read-more {
-      display: inline-block;
-      color: #ffb703;
-      text-decoration: none;
-      font-weight: 600;
-      transition: color 0.3s ease;
-    }
-
-    .news-item-content .read-more:hover {
-      color: #e0a302;
-    }
-
-    /* Free Consultation CTA */
-    .consultation-cta {
-      background: linear-gradient(135deg, #ffb703, #e0a302);
-      color: #144272;
-      text-align: center;
-      padding: 80px 20px;
-      margin-top: 80px;
-      border-radius: 15px;
-      box-shadow: 0 8px 25px rgba(0,0,0,0.25);
-    }
-
-    .consultation-cta h2 {
-      color: #144272;
-      margin-bottom: 20px;
-    }
-
-    .consultation-cta h2::after {
-        background-color: #144272; /* Dark blue line for contrast */
-    }
-
-    .consultation-cta p {
-      font-size: 1.3em;
-      margin-bottom: 40px;
-      max-width: 700px;
-      margin-left: auto;
-      margin-right: auto;
-      font-weight: 500;
-    }
-
-    .consultation-cta .cta-button {
-      background-color: #144272;
-      color: white;
-      padding: 18px 35px;
-      font-size: 1.2em;
-      border-radius: 10px;
-      box-shadow: 0 6px 15px rgba(0,0,0,0.3);
-    }
-
-    .consultation-cta .cta-button:hover {
-      background-color: #205295;
-      transform: translateY(-4px);
-    }
-
-
-    /* Contact Us Section (existing) */
-    #contact {
-      padding-top: 80px; /* Ensure enough space if preceding section has margin-bottom */
-    }
-
-    .contact-info-text {
-      text-align: center;
-      font-size: 1.1em;
-      color: #144272;
-      margin-bottom: 15px;
-      font-weight: 600;
-    }
-
-    /* New style for direct mail text */
-    .direct-mail-text {
-        text-align: center;
-        margin-top: 25px; /* Space above this text */
-        font-size: 0.95em;
-        color: #555;
-    }
-
-    .direct-mail-text a {
-        color: #144272;
-        font-weight: 600;
-        text-decoration: underline;
-        transition: color 0.3s ease;
-    }
-
-    .direct-mail-text a:hover {
-        color: #ffb703;
-    }
-
-    form {
-      display: flex;
-      flex-direction: column;
-      gap: 15px;
-      background: white;
-      padding: 30px;
-      border-radius: 10px;
-      box-shadow: 0 4px 8px rgba(0,0,0,0.1);
-    }
-
-    form input, form textarea {
-      padding: 12px;
-      border: 1px solid #ccc;
-      border-radius: 5px;
-      font-family: inherit;
-      background-color: #f8fbff;
-    }
-
-    form button {
-      background-color: #144272;
-      color: white;
-      padding: 12px;
-      border: none;
-      border-radius: 5px;
-      cursor: pointer;
-    }
-
-    form button:hover {
-      background-color: #205295;
-    }
-
-    /* Footer Section */
-    footer {
-      background-color: #144272;
-      color: white;
-      text-align: center;
-      padding: 25px; /* Adjusted padding */
-      margin-top: 60px; /* More space above footer */
-      font-size: 0.9em;
-      box-shadow: 0 -4px 15px rgba(0, 0, 0, 0.1);
-    }
-
-    footer h4 {
-        color: #ffb703; /* Yellow color for the "Contact us:" heading */
-        font-size: 1.2em;
-        margin-bottom: 15px;
-        font-weight: 600;
-    }
-
-    /* Styling for phone numbers and email in footer */
-    .footer-contact-info {
-        margin-top: 15px;
-        margin-bottom: 15px;
-    }
-
-    .footer-contact-info p {
-        display: flex;
-        align-items: center;
-        justify-content: center;
-        margin-bottom: 8px; /* Space between contact lines */
-        color: white; /* Ensure text is white */
-        font-weight: 500;
-    }
-
-    .footer-contact-info svg {
-        fill: #ffb703; /* Yellow color for SVG icon */
-        width: 18px; /* Size of the icon */
-        height: 18px;
-        margin-right: 8px; /* Space between icon and text */
-        vertical-align: middle;
-    }
-
-    .footer-contact-info a {
-        color: white; /* Make email link white */
-        text-decoration: none;
-        transition: color 0.3s ease;
-    }
-
-    .footer-contact-info a:hover {
-        color: #ffb703; /* Yellow on hover */
-    }
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Tribute to Mr. J.N. Sahni - Inaya Financial Services</title>
+  <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;600;700&display=swap" rel="stylesheet">
+  <style>
+    /* Basic Reset */
+    * {
+      margin: 0;
+      padding: 0;
+      box-sizing: border-box;
+    }
+
+    body {
+      font-family: 'Poppins', sans-serif;
+      background-color: #f0f4f8; /* Fallback background color */
+      color: #333;
+      line-height: 1.6;
+      display: flex;
+      flex-direction: column;
+      min-height: 100vh;
+      /* Enhanced background with image and overlay for tribute page */
+      background-image: url('https://images.unsplash.com/photo-1517486804820-940737151194?ixlib=rb-4.0.3&auto=format&fit=crop&w=1920&q=80'); /* Professional background image */
+      background-size: cover;
+      background-position: center;
+      background-attachment: fixed;
+      position: relative; /* Needed for overlay */
+    }
+
+    /* Overlay for the background image to improve readability */
+    body::before {
+      content: '';
+      position: absolute;
+      top: 0;
+      left: 0;
+      right: 0;
+      bottom: 0;
+      background: rgba(0, 0, 0, 0.5); /* Darker overlay */
+      z-index: -1; /* Place behind content */
+    }
+
+    /* Marquee Section */
+    .marquee-container {
+      background-color: #144272;
+      color: #ffb703;
+      padding: 10px 0;
+      overflow: hidden;
+      white-space: nowrap;
+    }
+
+    .marquee-content {
+      display: inline-block;
+      animation: marquee 19s linear infinite; /* Adjusted duration */
+      padding-left: 100%;
+    }
+
+    @keyframes marquee {
+      0% { transform: translateX(0%); }
+      100% { transform: translateX(-100%); }
+    }
+
+    /* Header Section */
+    header {
+      position: relative;
+      background: linear-gradient(135deg, #1f4287, #2c5a9b); /* Attractive blue gradient */
+      color: white;
+      text-align: center;
+      padding: 80px 20px 60px 20px; /* Adjusted padding */
+      box-shadow: 0 4px 15px rgba(0,0,0,0.2);
+    }
+
+    header::before {
+      content: '';
+      position: absolute;
+      inset: 0;
+      z-index: 0;
+    }
+
+    header h1, header p, .cta-button, .header-buttons, .header img {
+      position: relative;
+      z-index: 1;
+    }
+
+    header img { /* Styling for the logo image */
+      max-width: 200px;
+      margin-bottom: 20px;
+      border-radius: 8px;
+      box-shadow: 0 4px 10px rgba(0,0,0,0.2);
+    }
+
+    header h1 {
+      font-size: 3.5em; /* Larger heading */
+      margin-bottom: 10px;
+      font-weight: 700;
+      color: white; /* Explicitly set to white */
+    }
+
+    header p {
+      font-size: 1.3em; /* Larger subheading */
+      opacity: 0.9;
+      color: white; /* Explicitly set to white */
+    }
+
+    .header-buttons {
+      margin-top: 30px; /* More space above buttons */
+      display: flex;
+      flex-wrap: wrap; /* Allow buttons to wrap on smaller screens */
+      justify-content: center;
+      gap: 15px;
+    }
+
+    .header-buttons button {
+      background-color: #144272;
+      color: white;
+      padding: 12px 25px; /* Larger buttons */
+      border: none;
+      border-radius: 8px; /* More rounded */
+      cursor: pointer;
+      font-weight: 600;
+      transition: background-color 0.3s ease, transform 0.2s ease;
+      box-shadow: 0 2px 8px rgba(0,0,0,0.1);
+    }
+
+    .header-buttons button:hover {
+      background-color: #205295;
+      transform: translateY(-2px);
+    }
+
+    .cta-button {
+      margin-top: 40px; /* More space above primary CTA */
+      display: inline-block;
+      padding: 15px 30px; /* Larger primary CTA */
+      background-color: #ffb703;
+      color: #144272; /* Dark blue text on yellow button */
+      text-decoration: none;
+      border-radius: 8px;
+      font-weight: 700;
+      font-size: 1.1em;
+      transition: background-color 0.3s ease, transform 0.2s ease;
+      box-shadow: 0 4px 12px rgba(0,0,0,0.2);
+    }
+
+    .cta-button:hover {
+      background-color: #e0a302;
+      transform: translateY(-3px);
+    }
+
+    .container {
+      max-width: 900px;
+      margin: 40px auto; /* Adjusted margin to give space after header */
+      padding: 40px; /* Increased padding */
+      background-color: rgba(255, 255, 255, 0.95); /* Slightly transparent white */
+      border-radius: 15px; /* More rounded corners */
+      box-shadow: 0 10px 25px rgba(0,0,0,0.2); /* Stronger shadow for depth */
+      flex-grow: 1;
+      animation: fadeIn 1s ease-out; /* Fade-in animation for the container */
+    }
+
+    @keyframes fadeIn {
+      from { opacity: 0; transform: translateY(20px); }
+      to { opacity: 1; transform: translateY(0); }
+    }
+
+    /* Styling for the photo container */
+    .photo-container {
+      text-align: center;
+      margin-bottom: 30px; /* Space between photo and title */
+    }
+
+    .profile-photo {
+      width: 150px; /* Size of the photo */
+      height: 150px;
+      border-radius: 50%; /* Make it circular */
+      object-fit: cover; /* Ensures image covers the area without distortion */
+      border: 5px solid #144272; /* Border around the photo */
+      box-shadow: 0 5px 15px rgba(0,0,0,0.2); /* Shadow for the photo */
+    }
+
+
+    h1 {
+      text-align: center;
+      color: #144272;
+      margin-bottom: 35px; /* Adjusted margin */
+      font-size: 3em; /* Slightly larger heading */
+      font-weight: 700; /* Bolder heading */
+      letter-spacing: -0.5px; /* Slight letter spacing adjustment */
+    }
+
+    p {
+      margin-bottom: 1.5em; /* Increased line spacing */
+      text-align: justify;
+      color: #444; /* Slightly darker text for contrast */
+      line-height: 1.8;
+      font-size: 1.1em; /* Slightly larger paragraph text */
+      font-weight: 400;
+    }
+
+    .highlight {
+      font-weight: 700; /* Bolder highlight */
+      color: #144272;
+    }
+
+    .back-button-container {
+      text-align: center;
+      margin-top: 40px; /* Adjusted margin */
+    }
+
+    .back-button {
+      display: inline-block;
+      padding: 12px 28px; /* Larger padding for button */
+      background-color: #ffb703;
+      color: #000;
+      text-decoration: none;
+      border-radius: 8px; /* More rounded button */
+      font-weight: 700; /* Bolder button text */
+      transition: background-color 0.3s ease, transform 0.2s ease; /* Smooth hover and press effect */
+      box-shadow: 0 4px 10px rgba(0,0,0,0.1); /* Shadow for button */
+    }
+
+    .back-button:hover {
+      background-color: #e0a302;
+      transform: translateY(-2px); /* Slight lift on hover */
+    }
+
+    .back-button:active {
+      transform: translateY(0); /* Press down effect */
+      box-shadow: 0 2px 5px rgba(0,0,0,0.2);
+    }
+
+    /* Footer */
+    footer {
+      background-color: #144272;
+      color: white;
+      text-align: center;
+      padding: 25px; /* Adjusted padding */
+      margin-top: 60px; /* Increased space above footer */
+      font-size: 0.9em;
+      box-shadow: 0 -4px 15px rgba(0, 0, 0, 0.1); /* Added shadow for consistency */
+    }
+
+    footer h4 { /* Added style for h4 in footer */
+        color: #ffb703; /* Yellow color for the "Contact us:" heading */
+        font-size: 1.2em;
+        margin-bottom: 15px;
+        font-weight: 600;
+    }
+
+    .footer-contact-info { /* Added style for contact info container */
+        margin-top: 15px;
+        margin-bottom: 15px;
+    }
+
+    .footer-contact-info p { /* Added style for individual contact lines */
+        display: flex;
+        align-items: center;
+        justify-content: center;
+        margin-bottom: 8px; /* Space between contact lines */
+        color: white; /* Ensure text is white */
+        font-weight: 500;
+    }
+
+    .footer-contact-info svg { /* Added style for SVG icons in footer */
+        fill: #ffb703; /* Yellow color for SVG icon */
+        width: 18px; /* Size of the icon */
+        height: 18px;
+        margin-right: 8px; /* Space between icon and text */
+        vertical-align: middle;
+    }
+
+    .footer-contact-info a { /* Added style for email link in footer */
+        color: white; /* Make email link white */
+        text-decoration: none;
+        transition: color 0.3s ease;
+    }
+
+    .footer-contact-info a:hover { /* Added hover for email link */
+        color: #ffb703; /* Yellow on hover */
+    }
 
     /* Map Image Styling */
     .map-container {
         text-align: center; /* Center the map image */
         margin-top: 30px; /* Space above the map */
         margin-bottom: 30px; /* Space below the map */
+        padding: 0 20px; /* Add some horizontal padding for smaller screens */
+    }
+
+    .map-container h5 {
+        color: #ffb703; /* Yellow color for the text */
+        font-size: 1.1em;
+        margin-bottom: 15px;
+        font-weight: 600;
     }
 
     .map-container img {
@@ -547,260 +301,117 @@
         box-shadow: 0 4px 15px rgba(0,0,0,0.2); /* Add a shadow to the map */
     }
 
-    /* Responsive Adjustments */
-    @media (max-width: 768px) {
-      header {
-        padding: 60px 15px 40px 15px;
-      }
-      header h1 {
-        font-size: 2.5em;
-      }
-      header p {
-        font-size: 1em;
-      }
-      .header-buttons button {
-        flex-basis: 45%; /* Two buttons per row */
-        margin-bottom: 10px;
-        padding: 10px 20px;
-      }
-      .cta-button {
-        padding: 12px 25px;
-        font-size: 1em;
-      }
-      section {
-        padding: 50px 15px;
-      }
-      h2 {
-        font-size: 2em;
-        margin-bottom: 30px;
-      }
-      .welcome-section {
-        padding: 30px;
-        margin-top: 40px; /* Adjusted to remove negative margin */
-      }
-      .welcome-section p {
-        font-size: 1em;
-      }
-      .why-choose-us .feature-item {
-        padding: 25px;
-      }
-      .why-choose-us .feature-item .icon {
-        font-size: 2.5em;
-      }
-      .why-choose-us .feature-item h3 {
-        font-size: 1.4em;
-      }
-      .mid-cta-section, .testimonials-section, .news-section, .consultation-cta {
-        padding: 40px 15px;
-        margin-top: 40px;
-      }
-      .mid-cta-section p, .consultation-cta p {
-        font-size: 1em;
-      }
-      .testimonials-grid, .news-grid {
-        grid-template-columns: 1fr; /* Stack on mobile */
-      }
-      .testimonial-card, .news-item {
-        padding: 25px;
-      }
-      form {
-        padding: 25px;
-      }
-    }
-  </style>
+    @media (max-width: 768px) {
+      /* Header adjustments for mobile */
+      header {
+        padding: 20px 15px 40px 15px;
+      }
+      header h1 {
+        font-size: 2.5em;
+      }
+      header p {
+        font-size: 1em;
+      }
+      .header-buttons button {
+        flex-basis: 45%; /* Two buttons per row */
+        margin-bottom: 10px;
+        padding: 10px 20px;
+      }
+      .cta-button {
+        padding: 12px 25px;
+        font-size: 1em;
+      }
+
+      .container {
+        margin: 30px 20px;
+        padding: 25px;
+      }
+      h1 {
+        font-size: 2em;
+      }
+      p {
+        font-size: 1em;
+      }
+      .profile-photo {
+        width: 120px;
+        height: 120px;
+      }
+    }
+  </style>
 </head>
 <body>
-  <div class="marquee-container">
-    <div class="marquee-content">
-      Welcome to Inaya Financial Services - Your Partner in Financial Growth! &nbsp;&nbsp;&nbsp; Maximizing Your Returns with Expert Guidance! &nbsp;&nbsp;&nbsp; Secure Your Future Today!
-    </div>
-  </div>
 
-  <header>
-    <img src="Logo.png" alt="Inaya Financial Services Logo" style="max-width: 200px; margin-bottom: 20px;" onerror="this.onerror=null; this.src='https://placehold.co/200x80/CCCCCC/FFFFFF?text=Inaya+FS';"/>
-    <h1>Inaya Financial Services</h1>
-    <p>Your Partner in Financial Growth</p>
-    <div class="header-buttons">
-      <button onclick="location.href='IFS.HTML'">Home</button>
-      <button onclick="location.href='ourfounders.html'">About Us</button>
-      <button onclick="location.href='services.html'">Our services</button>
-      <button onclick="location.href='vision.html'">Our Vision</button>
-      <button onclick="location.href='tribute.html'">Tribute</button>
-    </div>
-    <a href="#contact" class="cta-button">Get in Touch</a>
-  </header>
+  <header>
+    <img src="Logo.png" alt="Inaya Financial Services Logo" style="max-width: 200px; margin-bottom: 20px;" onerror="this.onerror=null; this.src='https://placehold.co/200x80/CCCCCC/FFFFFF?text=Inaya+FS';"/>
+    <h1>Inaya Financial Services</h1>
+    <p style="text-align: center;">Your Partner in Financial Growth</p>
+    <div class="header-buttons">
+      <button onclick="location.href='IFS.HTML'">Home</button>
+      <button onclick="location.href='ourfounders.html'">About Us</button>
+      <button onclick="location.href='services.html'">Our services</button>
+      <button onclick="location.href='portfolio stats.html'">Assets Under Distribution</button>
+      <button onclick="location.href='vision.html'">Our Vision</button>
+      <button onclick="location.href='tribute.html'">Tribute</button>
+    </div>
+    <a href="#contact" class="cta-button">Get in Touch</a>
+  </header>
 
-  <section class="welcome-section">
-    <p>At Inaya Financial Services, we are dedicated to transforming your financial aspirations into tangible realities. With a commitment to trust, expertise, and personalized guidance, we empower you to navigate the complexities of finance with confidence and clarity, securing a prosperous future for you and your loved ones.</p>
-  </section>
-
-  <section class="why-choose-us">
-    <h2>Why Choose Inaya Financial Services?</h2>
-    <div class="features-grid">
-      <div class="feature-item">
-        <span class="icon">💡</span>
-        <h3>Expert Guidance</h3>
-        <p>Leverage decades of experience from seasoned financial professionals to make informed decisions and optimize your growth.</p>
-      </div>
-      <div class="feature-item">
-        <span class="icon">🤝</span>
-        <h3>Personalized Solutions</h3>
-        <p>Your financial journey is unique. We craft strategies specifically tailored to your goals, risk tolerance, and individual needs.</p>
-      </div>
-      <div class="feature-item">
-        <span class="icon">🔒</span>
-        <h3>Unwavering Trust</h3>
-        <p>Integrity and transparency are at our core. We build lasting relationships based on honesty and clear communication.</p>
-      </div>
-      <div class="feature-item">
-        <span class="icon">📈</span>
-        <h3>Holistic Approach</h3>
-        <p>From investments and loans to taxation and legal compliance, we cover every aspect of your financial well-being.</p>
-      </div>
-      <div class="feature-item">
-        <span class="icon">✨</span>
-        <h3>Innovative Strategies</h3>
-        <p>Stay ahead with modern financial tools and forward-thinking approaches designed for today's dynamic market.</p>
-      </div>
-      <div class="feature-item">
-        <span class="icon">🌍</span>
-        <h3>Community Focused</h3>
-        <p>We're invested in your success and the prosperity of our community, supporting growth at every level.</p>
-      </div>
-    </div>
-  </section>
-
-  <section class="mid-cta-section">
-    <h2>Ready to Secure Your Financial Future?</h2>
-    <p>Explore our comprehensive range of services designed to meet all your financial and non-financial needs.</p>
-    <a href="services.html" class="cta-button">Explore Our Services</a>
-  </section>
-
-  <section class="testimonials-section">
-    <h2>What Our Clients Say</h2>
-    <div class="testimonials-grid">
-      <div class="testimonial-card">
-        <span class="quote-icon">❝</span>
-        <p>"Inaya Financial Services transformed my financial planning. Their personalized approach and clear guidance gave me immense confidence in my investments. Truly exceptional!"</p>
-        <div class="author">Priya Sharma <span>- Entrepreneur</span></div>
-      </div>
-      <div class="testimonial-card">
-        <span class="quote-icon">❝</span>
-        <p>"The team at Inaya provided invaluable advice on my tax strategy and loan options. Their expertise saved me time and money, making complex processes remarkably simple."</p>
-        <div class="author">Rajesh Kumar <span>- Small Business Owner</span></div>
-      </div>
-      <div class="testimonial-card">
-        <span class="quote-icon">❝</span>
-        <p>"I highly recommend Inaya Financial Services. Their dedication to client well-being and their holistic view of finance is unparalleled. A reliable partner for financial growth."</p>
-        <div class="author">Anjali Singh <span>- Salaried Professional</span></div>
-      </div>
-    </div>
-  </section>
-
-  <section class="news-section">
-    <h2>Latest News & Insights</h2>
-    <div class="news-grid">
-      <div class="news-item">
-        <img src="https://placehold.co/400x200/F0F4F8/144272?text=Market+Update" alt="Market Update" onerror="this.onerror=null; this.src='https://placehold.co/400x200/F0F4F8/144272?text=Market+Update';">
-        <div class="news-item-content">
-          <h3>Navigating Volatile Markets</h3>
-          <p>Our expert analysis on how to safeguard your investments during periods of economic uncertainty. Stay informed, stay ahead.</p>
-          <a href="https://www.google.com/search?sca_esv=5d50172c00b11b61&rlz=1C1CHBF_enIN947IN947&sxsrf=AE3TifMGaJr7WmUUB1gOTPC-xHiuPRUIOQ:1750677215703&q=Navigating+Volatile+Markets&tbm=nws&source=lnms&fbs=AIIjpHxU7SXXniUZfeShr2fp4giZrjP_Cx0LI1Ytb_FGcOviEiTm5uW1q0uNfK7KsnoL8hUyUYUJLZ_b-p0lT09DIkR7bwzZ58goNnPFwCobO9Lr1FJy27_ddIL61O5aDZqsFHeKdbTBa3SWM9BbE6jpBPGlXzcFCH1KrIQ9yHBjyi-ZLJUInBy54epU8g3fHyjXolCFfseHfRcNjgYhOadYKw2rr0vq-A&sa=X&ved=2ahUKEwjTvbvstIeOAxUJZfUHHbY_GdQQ0pQJKAF6BAgVEAE&biw=1229&bih=584&dpr=1.56" class="read-more">Read More &rarr;</a>
-        </div>
-      </div>
-      <div class="news-item">
-        <img src="https://placehold.co/400x200/F0F4F8/144272?text=Tax+Tips" alt="Tax Tips" onerror="this.onerror=null; this.src='https://placehold.co/400x200/F0F4F8/144272?text=Tax+Tips';">
-        <div class="news-item-content">
-          <h3>Year-End Tax Saving Strategies</h3>
-          <p>Discover smart ways to optimize your taxes before the fiscal year ends with our comprehensive guide to deductions and exemptions.</p>
-          <a href="https://www.google.com/search?sca_esv=e5fb96b603781b63&rlz=1C1CHBF_enIN947IN947&sxsrf=AE3TifPj0Jti7xmM_nfxVa1cWb6Wb_bjWg:1750671363509&q=Year-End+Tax+Saving+Strategies&tbm=nws&source=lnms&fbs=AIIjpHxU7SXXniUZfeShr2fp4giZrjP_Cx0LI1Ytb_FGcOviEiTm5uW1q0uNfK7KsnoL8hUyUYUJLZ_b-p0lT09DIkR7RtNt-9R1f9Pbq4mdMMyxSelEHHADgzBCNx7-1ORi0KL6PmuZlhCdFkfC14rwu1hVYz7VaOyiNZ1fR3MRh37FnT1xKvvetQpGv6CeYusk3UW5R7062AE1WaM4vJA2CkZ6VOjUqg&sa=X&ved=2ahUKEwjI8PWFn4eOAxUKSGwGHZCHI3YQ0pQJKAF6BAgQEAE&biw=1229&bih=584&dpr=1.56" class="read-more">Read More &rarr;</a>
-        </div>
-      </div>
-      <div class="news-item">
-        <img src="https://placehold.co/400x200/F0F4F8/144272?text=Investment+Trends" alt="Investment Trends" onerror="this.onerror=null; this.src='https://placehold.co/400x200/F0F4F8/144272?text=Investment+Trends';">
-        <div class="news-item-content">
-          <h3>Emerging Investment Opportunities</h3>
-          <p>Explore new sectors and asset classes showing promising growth. Our insights help you spot the next big investment trend.</p>
-          <a href="https://www.google.com/search?q=emerging+Investment+Opportunities+latest+news+&sca_esv=5d50172c00b11b61&rlz=1C1CHBF_enIN947IN947&biw=1229&bih=584&tbm=nws&sxsrf=AE3TifMBbYWNUofQLjoNd0wDCuWJs8o75g%3A1750677308370&ei=PDdZaJWwFsCJvr0P1tic2AI&ved=0ahUKEwiVvtOYtYeOAxXAhK8BHVYsBysQ4dUDCA4&uact=5&oq=emerging+Investment+Opportunities+latest+news+&gs_lp=Egxnd3Mtd2l6LW5ld3MiLmVtZXJnaW5nIEludmVzdG1lbnQgT3Bwb3J0dW5pdGllcyBsYXRlc3QgbmV3cyAyCBAhGKABGMMESPgaUOABWLcZcAF4AJABAJgB-QGgAfQPqgEFMC40Lja4AQPIAQD4AQGYAgegApcJwgIFECEYoAHCAgoQIRigARjDBBgKmAMAiAYBkgcFMS4zLjOgB-onsgcFMC4zLjO4B5MJwgcFMS40LjLIBxA&sclient=gws-wiz-news" class="read-more">Read More &rarr;</a>
-        </div>
-      </div>
-    </div>
-  </section>
-
-  <section class="consultation-cta">
-    <h2>Get a Free Financial Consultation</h2>
-    <p>Unlock your financial potential with a personalized session. Our experts are ready to help you plan for a secure and prosperous future.</p>
-    <a href="#contact" class="cta-button">Schedule Your Free Consultation</a>
-  </section>
-
-  <section id="contact">
-    <p class="contact-info-text">Click on our services tab to know more!</p>
-    <h2>Contact Us</h2>
-    <form onsubmit="sendEmail(event)">
-      <input type="text" id="name" name="name" placeholder="Your Name" required />
-      <input type="email" id="email" name="email" placeholder="Your Email" required />
-      <textarea id="message" name="message" placeholder="Your Message" rows="5" required></textarea>
-      <button type="submit">Send Message</button>
-    </form>
-    <p class="direct-mail-text">If you have trouble reaching us via the form, you can mail us directly at: <a href="mailto:inayafinancialservices@gmail.com">inayafinancialservices@gmail.com</a></p>
-  </section>
-
-  <footer>
-    <h4>Contact us:</h4>
-    <div class="footer-contact-info">
-        <p>
-            <svg class="footer-phone-icon" viewBox="0 0 24 24">
-              <path d="M6.62 10.79c1.44 2.83 3.76 5.14 6.59 6.59l2.2-2.2c.27-.27.67-.36 1.02-.24 1.12.37 2.33.57 3.57.57.55 0 1 .45 1 1V20c0 .55-.45 1-1 1-9.39 0-17-7.61-17-17 0-.55.45-1 1-1h3.5c.55 0 1 .45 1 1 0 1.25.2 2.47.57 3.57.11.35.02.74-.25 1.02L6.62 10.79z"/>
-            </svg>
-            +91 8879936020
-        </p>
-        <p>
-            <svg class="footer-phone-icon" viewBox="0 0 24 24">
-              <path d="M6.62 10.79c1.44 2.83 3.76 5.14 6.59 6.59l2.2-2.2c.27-.27.67-.36 1.02-.24 1.12.37 2.33.57 3.57.57.55 0 1 .45 1 1V20c0 .55-.45 1-1 1-9.39 0-17-7.61-17-17 0-.55.45-1 1-1h3.5c.55 0 1 .45 1 1 0 1.25.2 2.47.57 3.57.11.35.02.74-.25 1.02L6.62 10.79z"/>
-            </svg>
-            +91 9936336276
-        </p>
-        <p>
-            <svg class="footer-phone-icon" viewBox="0 0 24 24">
-              <path d="M6.62 10.79c1.44 2.83 3.76 5.14 6.59 6.59l2.2-2.2c.27-.27.67-.36 1.02-.24 1.12.37 2.33.57 3.57.57.55 0 1 .45 1 1V20c0 .55-.45 1-1 1-9.39 0-17-7.61-17-17 0-.55.45-1 1-1h3.5c.55 0 1 .45 1 1 0 1.25.2 2.47.57 3.57.11.35.02.74-.25 1.02L6.62 10.79z"/>
-            </svg>
-            +91 9335097946
-        </p>
-        <p>
-            <svg class="footer-phone-icon" viewBox="0 0 24 24">
-                <path d="M20 4H4c-1.1 0-1.99.9-1.99 2L2 18c0 1.1.9 2 2 2h16c1.1 0 2-.9 2-2V6c0-1.1-.9-2-2-2zm0 4l-8 5-8-5V6l8 5 8-5v2z"/>
-            </svg>
-            <a href="mailto:inayafinancialservices@gmail.com">inayafinancialservices@gmail.com</a>
-        </p>
-    </div>
-
-    <div class="map-container">
-        <img src="map.jpg" alt="Map of Inaya Financial Services Locations in India">
+  <div class="container">
+    <div class="photo-container">
+      <img src="JN Sahni Photo.jpg" alt="Mr. J.N. Sahni" class="profile-photo" onerror="this.onerror=null; this.src='https://placehold.co/150x150/144272/FFB703?text=JN+Sahni';"/>
     </div>
 
-    <p>&copy; 2025 Inaya Financial Services. All rights reserved.</p>
-  </footer>
+    <h1>A Legacy of Inspiration: Remembering Mr. J.N. Sahni</h1>
 
-  <script>
-    function sendEmail(event) {
-      event.preventDefault(); // Prevent default form submission
+    <p>At Inaya Financial Services, we stand on the shoulders of giants. Today, we wish to pay tribute to a truly remarkable individual whose unwavering dedication and profound wisdom laid an invaluable, indirect foundation for what we are today: the late <span class="highlight">Mr. J.N. Sahni</span>.</p>
 
-      const name = document.getElementById('name').value;
-      const email = document.getElementById('email').value;
-      const message = document.getElementById('message').value;
+    <p>Mr. Sahni, who served with exceptional distinction at the Reserve Bank of India for <span class="highlight">over four decades</span>, from the tender age of 18 until his retirement at 60, embodied the principles of integrity, foresight, and meticulous effort. While he may not have been directly involved in the day-to-day operations of our company, his spirit and the values he championed resonate deeply within our core. It is with immense gratitude that we acknowledge that, without the profound impact of his efforts and his lasting legacy, the very existence and ethos of Inaya Financial Services as you know it would not have been possible.</p>
 
-      const subject = encodeURIComponent(`Inaya Financial Services Inquiry from ${name}`);
-      const body = encodeURIComponent(`Name: ${name}\nEmail: ${email}\n\nMessage:\n${message}`);
+    <p>His life's work is a testament to the power of commitment and the enduring influence one individual can have on future generations. We strive daily to uphold the standards of excellence and service that were so clearly exemplified in his distinguished career.</p>
 
-      // Open the user's default email client
-      const mailtoLink = `mailto:inayafinancialservices@gmail.com?subject=${subject}&body=${body}`;
-      const tempLink = document.createElement("a");
-      tempLink.href = mailtoLink;
-      tempLink.style.display = "none"; // Hide the temporary link
-      document.body.appendChild(tempLink);
-      tempLink.click(); // Programmatically click the link
-      document.body.removeChild(tempLink); // Clean up the temporary link
-    }
-  </script>
+    <p>We are eternally grateful for his contributions, and his memory continues to inspire us in our mission to serve you.</p>
+
+    <div class="back-button-container">
+      <a href="IFS.html" class="back-button">Back to Home</a>
+    </div>
+  </div>
+
+  <footer>
+    <h4>Contact us:</h4>
+    <div class="footer-contact-info">
+        <p>
+            <svg class="footer-phone-icon" viewBox="0 0 24 24">
+              <path d="M6.62 10.79c1.44 2.83 3.76 5.14 6.59 6.59l2.2-2.2c.27-.27.67-.36 1.02-.24 1.12.37 2.33.57 3.57.57.55 0 1 .45 1 1V20c0 .55-.45 1-1 1-9.39 0-17-7.61-17-17 0-.55.45-1 1-1h3.5c.55 0 1 .45 1 1 0 1.25.2 2.47.57 3.57.11.35.02.74-.25 1.02L6.62 10.79z"/>
+            </svg>
+            +91 8879936020
+        </p>
+        <p>
+            <svg class="footer-phone-icon" viewBox="0 0 24 24">
+              <path d="M6.62 10.79c1.44 2.83 3.76 5.14 6.59 6.59l2.2-2.2c.27-.27.67-.36 1.02-.24 1.12.37 2.33.57 3.57.57.55 0 1 .45 1 1V20c0 .55-.45 1-1 1-9.39 0-17-7.61-17-17 0-.55.45-1 1-1h3.5c.55 0 1 .45 1 1 0 1.25.2 2.47.57 3.57.11.35.02.74-.25 1.02L6.62 10.79z"/>
+            </svg>
+            +91 9936336276
+        </p>
+        <p>
+            <svg class="footer-phone-icon" viewBox="0 0 24 24">
+              <path d="M6.62 10.79c1.44 2.83 3.76 5.14 6.59 6.59l2.2-2.2c.27-.27.67-.36 1.02-.24 1.12.37 2.33.57 3.57.57.55 0 1 .45 1 1V20c0 .55-.45 1-1 1-9.39 0-17-7.61-17-17 0-.55.45-1 1-1h3.5c.55 0 1 .45 1 1 0 1.25.2 2.47.57 3.57.11.35.02.74-.25 1.02L6.62 10.79z"/>
+            </svg>
+            +91 9335097946
+        </p>
+        <p>
+            <svg class="footer-phone-icon" viewBox="0 0 24 24">
+                <path d="M20 4H4c-1.1 0-1.99.9-1.99 2L2 18c0 1.1.9 2 2 2h16c1.1 0 2-.9 2-2V6c0-1.1-.9-2-2-2zm0 4l-8 5-8-5V6l8 5 8-5v2z"/>
+            </svg>
+            <a href="mailto:inayafinancialservices@gmail.com">inayafinancialservices@gmail.com</a>
+        </p>
+    </div>
+
+    <!-- Map Image Section -->
+    <div class="map-container">
+        <h5>We currently are serving in these locations: Mumbai, Kanpur, and Gurugram.</h5>
+        <img src="map.jpg" alt="Map of Inaya Financial Services Locations in India" onerror="this.onerror=null; this.src='https://placehold.co/600x400/144272/ffb703?text=Map+Unavailable';">
+    </div>
+
+    <p>&copy; 2025 Inaya Financial Services. All rights reserved.</p>
+  </footer>
 </body>
 </html>

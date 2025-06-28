@@ -70,8 +70,8 @@
         }
 
         .header-buttons button {
-            background-color: #ffb703; /* Yellow button color */
-            color: #144272; /* Dark blue text */
+            background-color: #144272;
+            color: white;
             padding: 10px 25px;
             border: none;
             border-radius: 8px;
@@ -82,8 +82,27 @@
         }
 
         .header-buttons button:hover {
-            background-color: #e0a302;
+            background-color: #205295;
             transform: translateY(-2px);
+        }
+
+        .cta-button {
+            margin-top: 40px; /* More space above primary CTA */
+            display: inline-block;
+            padding: 15px 30px; /* Larger primary CTA */
+            background-color: #ffb703;
+            color: #144272; /* Dark blue text on yellow button */
+            text-decoration: none;
+            border-radius: 8px;
+            font-weight: 700;
+            font-size: 1.1em;
+            transition: background-color 0.3s ease, transform 0.2s ease;
+            box-shadow: 0 4px 12px rgba(0,0,0,0.2);
+        }
+
+        .cta-button:hover {
+        background-color: #e0a302;
+        transform: translateY(-3px);
         }
 
         /* Main Container */
@@ -176,20 +195,91 @@
             line-height: 1;
         }
 
-        /* Footer */
-        .footer {
-            text-align: center;
-            padding: 2.5rem;
-            background-color: #144272;
-            color: white;
-            font-size: 0.9em;
-            margin-top: auto;
-            box-shadow: 0 -4px 15px rgba(0, 0, 0, 0.1);
+        .footer-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+            gap: 30px;
         }
 
-        .footer p {
-            margin-bottom: 5px;
+        .footer-item {
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+        
         }
+
+    /* Footer Section */
+    footer {
+      background-color: #144272;
+      color: white;
+      text-align: center;
+      padding: 25px; /* Adjusted padding */
+      margin-top: 60px; /* More space above footer */
+      font-size: 0.9em;
+      box-shadow: 0 -4px 15px rgba(0, 0, 0, 0.1);
+    }
+
+    footer h4 {
+        color: #ffb703; /* Yellow color for the "Contact us:" heading */
+        font-size: 1.2em;
+        margin-bottom: 15px;
+        font-weight: 600;
+    }
+
+    /* Styling for phone numbers and email in footer */
+    .footer-contact-info {
+        margin-top: 15px;
+        margin-bottom: 15px;
+    }
+
+    .footer-contact-info p {
+        display: flex;
+        align-items: center;
+        justify-content: center;
+        margin-bottom: 8px; /* Space between contact lines */
+        color: white; /* Ensure text is white */
+        font-weight: 500;
+    }
+
+    .footer-contact-info svg {
+        fill: #ffb703; /* Yellow color for SVG icon */
+        width: 18px; /* Size of the icon */
+        height: 18px;
+        margin-right: 8px; /* Space between icon and text */
+        vertical-align: middle;
+    }
+
+    .footer-contact-info a {
+        color: white; /* Make email link white */
+        text-decoration: none;
+        transition: color 0.3s ease;
+    }
+
+    .footer-contact-info a:hover {
+        color: #ffb703; /* Yellow on hover */
+    }
+
+    /* Map Image Styling */
+    .map-container {
+        text-align: center; /* Center the map image */
+        margin-top: 15px; /* Space above the map */
+        margin-bottom: 30px; /* Space below the map */
+        padding: 0 20px; /* Add some horizontal padding for smaller screens */
+    }
+
+    .map-container h5 {
+        color: #ffb703; /* Yellow color for the text */
+        font-size: 1.1em;
+        margin-bottom: 15px;
+        font-weight: 600;
+    }
+
+    .map-container img {
+        max-width: 20%; /* Ensure map is responsive */
+        height: auto;
+        border-radius: 10px; /* Slightly rounded corners for the map */
+        box-shadow: 0 4px 15px rgba(0,0,0,0.2); /* Add a shadow to the map */
+    }
 
         /* Responsive Adjustments */
         @media (max-width: 768px) {
@@ -233,7 +323,7 @@
     <div class="header">
         <h1>Our Vision</h1>
         <div class="header-buttons">
-            <button onclick="location.href='IFS.HTML'">Home</button>
+            <button onclick="location.href='index.html'">Home</button>
             <button onclick="location.href='ourfounders.html'">About Us</button>
             <button onclick="location.href='services.html'">Our Services</button>
             <button onclick="location.href='portfolio stats.html'">Assets Under Distribution</button>
@@ -241,6 +331,7 @@
             <button onclick="location.href='vision.html'">Our Vision</button>
             <button onclick="location.href='tribute.html'">Tribute</button>
         </div>
+        <a href="index.html#contact" class="cta-button">Get in Touch</a>
     </div>
 
     <div class="container">
@@ -287,13 +378,47 @@
     </div>
 
 
-    <div class="footer">
-        <p>Contact us:</p>
-        <p>Email: inayafinancialservices@gmail.com</p>
-        <p>Phone 1:+91 8879936020</p>
-        <p>Phone 2:+91 9936336276</p>
-	<p>Phone 3:+91 9335097946</p>
+    <footer>
+        <div class="footer-grid">
+        <div class="footer-item">
+        <div class="footer-contact-info">
+          <h4>Contact us:</h4>
+            <p>
+                <svg class="footer-phone-icon" viewBox="0 0 24 24">
+                  <path d="M6.62 10.79c1.44 2.83 3.76 5.14 6.59 6.59l2.2-2.2c.27-.27.67-.36 1.02-.24 1.12.37 2.33.57 3.57.57.55 0 1 .45 1 1V20c0 .55-.45 1-1 1-9.39 0-17-7.61-17-17 0-.55.45-1 1-1h3.5c.55 0 1 .45 1 1 0 1.25.2 2.47.57 3.57.11.35.02.74-.25 1.02L6.62 10.79z"/>
+                </svg>
+                +91 8879936020
+            </p>
+            <p>
+                <svg class="footer-phone-icon" viewBox="0 0 24 24">
+                  <path d="M6.62 10.79c1.44 2.83 3.76 5.14 6.59 6.59l2.2-2.2c.27-.27.67-.36 1.02-.24 1.12.37 2.33.57 3.57.57.55 0 1 .45 1 1V20c0 .55-.45 1-1 1-9.39 0-17-7.61-17-17 0-.55.45-1 1-1h3.5c.55 0 1 .45 1 1 0 1.25.2 2.47.57 3.57.11.35.02.74-.25 1.02L6.62 10.79z"/>
+                </svg>
+                +91 9936336276
+            </p>
+            <p>
+                <svg class="footer-phone-icon" viewBox="0 0 24 24">
+                  <path d="M6.62 10.79c1.44 2.83 3.76 5.14 6.59 6.59l2.2-2.2c.27-.27.67-.36 1.02-.24 1.12.37 2.33.57 3.57.57.55 0 1 .45 1 1V20c0 .55-.45 1-1 1-9.39 0-17-7.61-17-17 0-.55.45-1 1-1h3.5c.55 0 1 .45 1 1 0 1.25.2 2.47.57 3.57.11.35.02.74-.25 1.02L6.62 10.79z"/>
+                </svg>
+                +91 9335097946
+            </p>
+            <p>
+                <svg class="footer-phone-icon" viewBox="0 0 24 24">
+                    <path d="M20 4H4c-1.1 0-1.99.9-1.99 2L2 18c0 1.1.9 2 2 2h16c1.1 0 2-.9 2-2V6c0-1.1-.9-2-2-2zm0 4l-8 5-8-5V6l8 5 8-5v2z"/>
+                </svg>
+                <a href="mailto:inayafinancialservices@gmail.com">inayafinancialservices@gmail.com</a>
+            </p>
+        </div>
+      </div>
+      <div class="footer-item">
+        <!-- Map Image Section -->
+        <div class="map-container">
+            <h5>We are currently serving in Mumbai, Kanpur, and Gurugram.</h5>
+            <img src="IFSLocations.png" alt="Map of Inaya Financial Services Locations in India" onerror="this.onerror=null; this.src='https://placehold.co/600x400/144272/ffb703?text=Map+Unavailable';">
+        </div>
+      </div>
+        </div>
+    
         <p>&copy; 2025 Inaya Financial Services. All rights reserved.</p>
-    </div>
+      </footer>
 </body>
 </html>

@@ -1,4 +1,4 @@
-f<!DOCTYPE html>
+<!DOCTYPE html>
 <html lang="en">
 <head>
   <meta charset="UTF-8" />
@@ -21,7 +21,7 @@ f<!DOCTYPE html>
       display: flex;
       flex-direction: column;
       min-height: 100vh;
-      /* Enhanced background with image and overlay */
+      /* Enhanced background with image and overlay for tribute page */
       background-image: url('https://images.unsplash.com/photo-1517486804820-940737151194?ixlib=rb-4.0.3&auto=format&fit=crop&w=1920&q=80'); /* Professional background image */
       background-size: cover;
       background-position: center;
@@ -41,9 +41,115 @@ f<!DOCTYPE html>
       z-index: -1; /* Place behind content */
     }
 
+    /* Marquee Section */
+    .marquee-container {
+      background-color: #144272;
+      color: #ffb703;
+      padding: 10px 0;
+      overflow: hidden;
+      white-space: nowrap;
+    }
+
+    .marquee-content {
+      display: inline-block;
+      animation: marquee 19s linear infinite; /* Adjusted duration */
+      padding-left: 100%;
+    }
+
+    @keyframes marquee {
+      0% { transform: translateX(0%); }
+      100% { transform: translateX(-100%); }
+    }
+
+    /* Header Section */
+    header {
+      position: relative;
+      background: linear-gradient(135deg, #1f4287, #2c5a9b); /* Attractive blue gradient */
+      color: white;
+      text-align: center;
+      padding: 45px 20px 20px 20px; /* Adjusted padding */
+      box-shadow: 0 4px 15px rgba(0,0,0,0.2);
+    }
+
+    header::before {
+      content: '';
+      position: absolute;
+      inset: 0;
+      z-index: 0;
+    }
+
+    header h1, header p, .cta-button, .header-buttons, .header img {
+      position: relative;
+      z-index: 1;
+    }
+
+    header img { /* Styling for the logo image */
+      max-width: 200px;
+      margin-bottom: 20px;
+      border-radius: 8px;
+      box-shadow: 0 4px 10px rgba(0,0,0,0.2);
+    }
+
+    header h1 {
+      font-size: 3.5em; /* Larger heading */
+      margin-bottom: 10px;
+      font-weight: 700;
+      color: white; /* Explicitly set to white */
+    }
+
+    header p {
+      font-size: 1.3em; /* Larger subheading */
+      opacity: 0.9;
+      color: white; /* Explicitly set to white */
+    }
+
+    .header-buttons {
+      margin-top: 30px; /* More space above buttons */
+      display: flex;
+      flex-wrap: wrap; /* Allow buttons to wrap on smaller screens */
+      justify-content: center;
+      gap: 15px;
+    }
+
+    .header-buttons button {
+      background-color: #144272;
+      color: white;
+      padding: 12px 25px; /* Larger buttons */
+      border: none;
+      border-radius: 8px; /* More rounded */
+      cursor: pointer;
+      font-weight: 600;
+      transition: background-color 0.3s ease, transform 0.2s ease;
+      box-shadow: 0 2px 8px rgba(0,0,0,0.1);
+    }
+
+    .header-buttons button:hover {
+      background-color: #205295;
+      transform: translateY(-2px);
+    }
+
+    .cta-button {
+      margin-top: 40px; /* More space above primary CTA */
+      display: inline-block;
+      padding: 15px 30px; /* Larger primary CTA */
+      background-color: #ffb703;
+      color: #144272; /* Dark blue text on yellow button */
+      text-decoration: none;
+      border-radius: 8px;
+      font-weight: 700;
+      font-size: 1.1em;
+      transition: background-color 0.3s ease, transform 0.2s ease;
+      box-shadow: 0 4px 12px rgba(0,0,0,0.2);
+    }
+
+    .cta-button:hover {
+      background-color: #e0a302;
+      transform: translateY(-3px);
+    }
+
     .container {
       max-width: 900px;
-      margin: 60px auto; /* Increased margin for better spacing */
+      margin: 40px auto; /* Adjusted margin to give space after header */
       padding: 40px; /* Increased padding */
       background-color: rgba(255, 255, 255, 0.95); /* Slightly transparent white */
       border-radius: 15px; /* More rounded corners */
@@ -123,30 +229,49 @@ f<!DOCTYPE html>
       box-shadow: 0 2px 5px rgba(0,0,0,0.2);
     }
 
-    /* Footer */
+    .footer-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+            gap: 30px;
+        }
+
+        .footer-item {
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+        
+        }
+
+    /* Footer Section */
     footer {
       background-color: #144272;
       color: white;
       text-align: center;
       padding: 25px; /* Adjusted padding */
-      margin-top: 60px; /* Increased space above footer */
+      margin-top: 60px; /* More space above footer */
       font-size: 0.9em;
-      box-shadow: 0 -4px 15px rgba(0, 0, 0, 0.1); /* Added shadow for consistency */
+      box-shadow: 0 -4px 15px rgba(0, 0, 0, 0.1);
     }
 
-    footer h4 { /* Added style for h4 in footer */
+    footer p {
+      color: white;
+      text-align: center;
+    }
+
+    footer h4 {
         color: #ffb703; /* Yellow color for the "Contact us:" heading */
         font-size: 1.2em;
         margin-bottom: 15px;
         font-weight: 600;
     }
 
-    .footer-contact-info { /* Added style for contact info container */
+    /* Styling for phone numbers and email in footer */
+    .footer-contact-info {
         margin-top: 15px;
         margin-bottom: 15px;
     }
 
-    .footer-contact-info p { /* Added style for individual contact lines */
+    .footer-contact-info p {
         display: flex;
         align-items: center;
         justify-content: center;
@@ -155,7 +280,7 @@ f<!DOCTYPE html>
         font-weight: 500;
     }
 
-    .footer-contact-info svg { /* Added style for SVG icons in footer */
+    .footer-contact-info svg {
         fill: #ffb703; /* Yellow color for SVG icon */
         width: 18px; /* Size of the icon */
         height: 18px;
@@ -163,17 +288,59 @@ f<!DOCTYPE html>
         vertical-align: middle;
     }
 
-    .footer-contact-info a { /* Added style for email link in footer */
+    .footer-contact-info a {
         color: white; /* Make email link white */
         text-decoration: none;
         transition: color 0.3s ease;
     }
 
-    .footer-contact-info a:hover { /* Added hover for email link */
+    .footer-contact-info a:hover {
         color: #ffb703; /* Yellow on hover */
     }
 
+    /* Map Image Styling */
+    .map-container {
+        text-align: center; /* Center the map image */
+        margin-top: 15px; /* Space above the map */
+        margin-bottom: 30px; /* Space below the map */
+        padding: 0 20px; /* Add some horizontal padding for smaller screens */
+    }
+
+    .map-container h5 {
+        color: #ffb703; /* Yellow color for the text */
+        font-size: 1.1em;
+        margin-bottom: 15px;
+        font-weight: 600;
+    }
+
+    .map-container img {
+        max-width: 20%; /* Ensure map is responsive */
+        height: auto;
+        border-radius: 10px; /* Slightly rounded corners for the map */
+        box-shadow: 0 4px 15px rgba(0,0,0,0.2); /* Add a shadow to the map */
+    }
+
     @media (max-width: 768px) {
+      /* Header adjustments for mobile */
+      header {
+        padding: 20px 15px 40px 15px;
+      }
+      header h1 {
+        font-size: 2.5em;
+      }
+      header p {
+        font-size: 1em;
+      }
+      .header-buttons button {
+        flex-basis: 45%; /* Two buttons per row */
+        margin-bottom: 10px;
+        padding: 10px 20px;
+      }
+      .cta-button {
+        padding: 12px 25px;
+        font-size: 1em;
+      }
+
       .container {
         margin: 30px 20px;
         padding: 25px;
@@ -192,6 +359,21 @@ f<!DOCTYPE html>
   </style>
 </head>
 <body>
+
+  <header>
+       <h1>Tribute</h1>
+	<p style="text-align:center;">Tribute to the one without whom we wouldnt have even moved from our starting point</p>
+       <div class="header-buttons">
+      <button onclick="location.href='index.html'">Home</button>
+      <button onclick="location.href='ourfounders.html'">About Us</button>
+      <button onclick="location.href='services.html'">Our services</button>
+      <button onclick="location.href='portfolio stats.html'">Assets Under Distribution</button>
+      <button onclick="location.href='vision.html'">Our Vision</button>
+      <button onclick="location.href='tribute.html'">Tribute</button>
+    </div>
+    <a href="index.html#contact" class="cta-button">Get in Touch</a>
+  </header>
+
   <div class="container">
     <div class="photo-container">
       <img src="JN Sahni Photo.jpg" alt="Mr. J.N. Sahni" class="profile-photo" onerror="this.onerror=null; this.src='https://placehold.co/150x150/144272/FFB703?text=JN+Sahni';"/>
@@ -208,13 +390,15 @@ f<!DOCTYPE html>
     <p>We are eternally grateful for his contributions, and his memory continues to inspire us in our mission to serve you.</p>
 
     <div class="back-button-container">
-      <a href="IFS.html" class="back-button">Back to Home</a>
+      <a href="index.html" class="back-button">Back to Home</a>
     </div>
   </div>
 
   <footer>
-    <h4>Contact us:</h4>
+    <div class="footer-grid">
+    <div class="footer-item">
     <div class="footer-contact-info">
+      <h4>Contact us:</h4>
         <p>
             <svg class="footer-phone-icon" viewBox="0 0 24 24">
               <path d="M6.62 10.79c1.44 2.83 3.76 5.14 6.59 6.59l2.2-2.2c.27-.27.67-.36 1.02-.24 1.12.37 2.33.57 3.57.57.55 0 1 .45 1 1V20c0 .55-.45 1-1 1-9.39 0-17-7.61-17-17 0-.55.45-1 1-1h3.5c.55 0 1 .45 1 1 0 1.25.2 2.47.57 3.57.11.35.02.74-.25 1.02L6.62 10.79z"/>
@@ -239,9 +423,19 @@ f<!DOCTYPE html>
             </svg>
             <a href="mailto:inayafinancialservices@gmail.com">inayafinancialservices@gmail.com</a>
         </p>
-  <p>&copy; 2025 Inaya Financial Services. All rights reserved.</p>
     </div>
-  
+  </div>
+  <div class="footer-item">
+    <!-- Map Image Section -->
+    <div class="map-container">
+        <h5>We are currently serving in Mumbai, Kanpur, and Gurugram.</h5>
+        <img src="IFSLocations.png" alt="Map of Inaya Financial Services Locations in India" onerror="this.onerror=null; this.src='https://placehold.co/600x400/144272/ffb703?text=Map+Unavailable';">
+    </div>
+  </div>
+    </div>
+
+    <p>&copy; 2025 Inaya Financial Services. All rights reserved.</p>
   </footer>
+
 </body>
 </html>
